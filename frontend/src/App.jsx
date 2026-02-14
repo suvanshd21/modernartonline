@@ -31,8 +31,18 @@ function GameWrapper() {
             name: message.data.player_name,
             card_count: 0,
             painting_count: 0,
+            turn_order: prev.players.length,
             is_connected: true
           }]
+        } : prev);
+        break;
+      case 'players_reordered':
+        setGameState((prev) => prev ? {
+          ...prev,
+          players: prev.players.map((p) => {
+            const updated = message.data.players.find((u) => u.id === p.id);
+            return updated ? { ...p, turn_order: updated.turn_order } : p;
+          })
         } : prev);
         break;
       case 'player_disconnected':

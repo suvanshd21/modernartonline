@@ -46,6 +46,12 @@ export async function startGame(code, playerId) {
   });
 }
 
+export async function randomizeOrder(code, playerId) {
+  return request(`/games/${code}/randomize-order?player_id=${playerId}`, {
+    method: 'POST',
+  });
+}
+
 // Game actions
 export async function playCard(code, playerId, cardIndex) {
   return request(`/games/${code}/play-card`, {

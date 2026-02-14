@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { startGame } from '../api';
+import { startGame, randomizeOrder } from '../api';
 
 function Lobby({ gameState, playerId, isConnected }) {
   const [error, setError] = useState('');
   const [starting, setStarting] = useState(false);
+  const [randomizing, setRandomizing] = useState(false);
 
   const isHost = gameState.host_player_id === playerId;
   const canStart = gameState.players.length >= 3 && gameState.players.length <= 5;
@@ -22,6 +23,20 @@ function Lobby({ gameState, playerId, isConnected }) {
     }
   };
 
+  const handleRandomize = async () => {
+    setRandomizing(true);
+    setError('');
+
+    try {
+      await randomizeOrder(gameState.code, playerId);
+      // WebSocket will receive players_reordered update
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setRandomizing(false);
+    }
+  };
+
   const copyCode = () => {
     navigator.clipboard.writeText(gameState.code);
   };
@@ -30,6 +45,11 @@ function Lobby({ gameState, playerId, isConnected }) {
     const url = `${window.location.origin}/game/${gameState.code}`;
     navigator.clipboard.writeText(url);
   };
+
+  // Sort players by turn order for display
+  const sortedPlayers = [...gameState.players].sort((a, b) =>
+    (a.turn_order ?? 0) - (b.turn_order ?? 0)
+  );
 
   return (
     <div className="lobby">
@@ -53,10 +73,22 @@ function Lobby({ gameState, playerId, isConnected }) {
       </div>
 
       <div className="players-section">
-        <h2>Players ({gameState.players.length}/5)</h2>
+        <div className="players-header">
+          <h2>Players ({gameState.players.length}/5)</h2>
+          {isHost && gameState.players.length >= 2 && (
+            <button
+              onClick={handleRandomize}
+              disabled={randomizing}
+              className="btn-small btn-secondary"
+            >
+              {randomizing ? 'Shuffling...' : 'Randomize Order'}
+            </button>
+          )}
+        </div>
         <ul className="player-list">
-          {gameState.players.map((player) => (
+          {sortedPlayers.map((player, index) => (
             <li key={player.id} className={`player-item ${!player.is_connected ? 'disconnected' : ''}`}>
+              <span className="turn-order-badge">{index + 1}</span>
               <span className="player-name">
                 {player.name}
                 {player.id === gameState.host_player_id && ' (Host)'}
@@ -66,6 +98,7 @@ function Lobby({ gameState, playerId, isConnected }) {
             </li>
           ))}
         </ul>
+        <p className="turn-order-hint">Player 1 goes first, then clockwise</p>
       </div>
 
       {error && <p className="error">{error}</p>}

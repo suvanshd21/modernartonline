@@ -57,6 +57,7 @@ def build_game_state_response(db: Session, game: Game) -> dict:
             name=p.name,
             card_count=len(get_player_hand(p)),
             painting_count=painting_count,
+            turn_order=p.turn_order or 0,
             is_connected=p.is_connected
         ))
 
@@ -198,6 +199,38 @@ async def join_game(code: str, request: JoinGameRequest, db: Session = Depends(g
     )
 
     return JoinedGameResponse(player_id=player.id)
+
+
+@router.post("/{code}/randomize-order")
+async def randomize_order(code: str, player_id: str, db: Session = Depends(get_db)):
+    """Randomize player turn order (host only, lobby only)."""
+    import random
+
+    game = get_game_by_code(db, code)
+
+    if game.host_player_id != player_id:
+        raise HTTPException(status_code=403, detail="Only host can randomize order")
+
+    if game.status != "lobby":
+        raise HTTPException(status_code=400, detail="Can only randomize in lobby")
+
+    # Shuffle turn order
+    players = list(game.players)
+    random.shuffle(players)
+    for i, player in enumerate(players):
+        player.turn_order = i
+
+    db.commit()
+
+    # Broadcast updated player list
+    await manager.broadcast({
+        "type": "players_reordered",
+        "data": {
+            "players": [{"id": p.id, "name": p.name, "turn_order": p.turn_order} for p in players]
+        }
+    }, game.code)
+
+    return {"status": "randomized"}
 
 
 @router.post("/{code}/start")

@@ -43,6 +43,7 @@ class PlayerPublic(BaseModel):
     name: str
     card_count: int  # How many cards in hand
     painting_count: int  # How many paintings owned this round
+    turn_order: int  # Position in turn sequence
     is_connected: bool
 
     class Config:
