@@ -64,8 +64,8 @@ async def play_card_route(
         raise HTTPException(status_code=400, detail=str(e))
 
     if is_round_ending:
-        # Process round end
-        round_info = end_round(db, game)
+        # Process round end - next round's turn goes to player after this one
+        round_info = end_round(db, game, round_ending_player_id=player.id)
 
         # Broadcast round ended
         state = build_game_state_response(db, game)
@@ -155,7 +155,8 @@ async def add_double_route(
         raise HTTPException(status_code=400, detail=str(e))
 
     if is_round_ending:
-        round_info = end_round(db, game)
+        # Second card ended the round - next round's turn goes to player after this one
+        round_info = end_round(db, game, round_ending_player_id=player.id)
 
         state = build_game_state_response(db, game)
         private = get_private_data(game)

@@ -412,7 +412,8 @@ def record_auction_result(
     game.awaiting_auction_result = False
     game.double_auction_state = None
 
-    # Advance turn
+    # Advance turn from the auctioneer (for double auctions, this is the second card player)
+    game.current_turn_player_id = auctioneer_id
     advance_turn(db, game, players)
     db.commit()
 
@@ -428,13 +429,17 @@ def advance_turn(db: Session, game: Game, players: list[Player]) -> None:
     game.current_turn_player_id = sorted_players[next_idx].id
 
 
-def end_round(db: Session, game: Game) -> dict:
+def end_round(db: Session, game: Game, round_ending_player_id: str = None) -> dict:
     """
     Process end of round:
     - Rank artists by paintings sold
     - Assign value tiles
     - Calculate and distribute payouts
     - Deal new cards for next round
+
+    Args:
+        round_ending_player_id: The player who played the round-ending card.
+                               Next round's turn goes to the player after them.
 
     Returns info about the round end.
     """
@@ -516,9 +521,15 @@ def end_round(db: Session, game: Game) -> dict:
             set_player_hand(player, current_hand)
         game.deck = json.dumps(deck)
 
-    # Reset turn to first player
+    # Advance turn to next player after whoever played the round-ending card
     sorted_players = sorted(players, key=lambda p: p.turn_order or 0)
-    game.current_turn_player_id = sorted_players[0].id
+    if round_ending_player_id:
+        # Find the player who ended the round and advance from them
+        game.current_turn_player_id = round_ending_player_id
+        advance_turn(db, game, players)
+    else:
+        # Fallback: start with first player
+        game.current_turn_player_id = sorted_players[0].id
 
     db.commit()
 
