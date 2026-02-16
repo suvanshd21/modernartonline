@@ -8,15 +8,21 @@ Creates a JSON file with themed artwork for each artist:
 - Melim (Red): Architecture/Urban
 - Martins (Green): Botanical/Nature
 - Silveira (Orange): Mythology/Fantasy
+
+Usage:
+    python scripts/extract_artwork.py /path/to/NationalGalleryOfArt/opendata
+
+    Clone the NGA opendata repo first:
+    git clone https://github.com/NationalGalleryOfArt/opendata.git
 """
 
+import argparse
 import csv
 import json
 import random
+import sys
 from pathlib import Path
 
-# Path to NGA opendata
-OPENDATA_PATH = Path("/Users/suvansh/code/opendata/data")
 OUTPUT_PATH = Path(__file__).parent.parent / "frontend" / "src" / "data" / "artwork.json"
 
 # Theme mappings for each artist
@@ -54,10 +60,10 @@ ARTIST_THEMES = {
 }
 
 
-def load_images():
+def load_images(opendata_path):
     """Load published images with their object IDs."""
     images = {}
-    with open(OPENDATA_PATH / "published_images.csv", "r") as f:
+    with open(opendata_path / "data" / "published_images.csv", "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
             obj_id = row.get("depictstmsobjectid", "").strip()
@@ -70,10 +76,10 @@ def load_images():
     return images
 
 
-def load_objects():
+def load_objects(opendata_path):
     """Load object metadata."""
     objects = {}
-    with open(OPENDATA_PATH / "objects.csv", "r") as f:
+    with open(opendata_path / "data" / "objects.csv", "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
             obj_id = row.get("objectid", "").strip()
@@ -88,10 +94,10 @@ def load_objects():
     return objects
 
 
-def load_object_themes():
+def load_object_themes(opendata_path):
     """Load themes for each object."""
     themes = {}
-    with open(OPENDATA_PATH / "objects_terms.csv", "r") as f:
+    with open(opendata_path / "data" / "objects_terms.csv", "r") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row.get("termtype") == "Theme":
@@ -134,17 +140,33 @@ def find_artwork_for_theme(themes_wanted, object_themes, objects, images, count)
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Extract themed artwork from NGA open data for Modern Art Online"
+    )
+    parser.add_argument(
+        "opendata_path",
+        type=Path,
+        help="Path to the NationalGalleryOfArt/opendata repository clone"
+    )
+    args = parser.parse_args()
+
+    opendata_path = args.opendata_path
+    if not (opendata_path / "data").exists():
+        print(f"Error: {opendata_path}/data not found.")
+        print("Make sure you've cloned https://github.com/NationalGalleryOfArt/opendata")
+        sys.exit(1)
+
     print("Loading NGA open data...")
     print("  Loading images...")
-    images = load_images()
+    images = load_images(opendata_path)
     print(f"    Found {len(images)} images")
 
     print("  Loading objects...")
-    objects = load_objects()
+    objects = load_objects(opendata_path)
     print(f"    Found {len(objects)} objects")
 
     print("  Loading themes...")
-    object_themes = load_object_themes()
+    object_themes = load_object_themes(opendata_path)
     print(f"    Found themes for {len(object_themes)} objects")
 
     print("\nFinding artwork for each artist...")
