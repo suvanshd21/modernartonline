@@ -109,10 +109,18 @@ def get_artist_count_this_round(db: Session, game: Game) -> dict[str, int]:
     return counts
 
 
-def check_round_end(db: Session, game: Game, artist: str) -> bool:
-    """Check if playing a card of this artist ends the round (5th card)."""
+def check_round_end(db: Session, game: Game, artist: str, cards_being_added: int = 1) -> bool:
+    """
+    Check if playing card(s) of this artist ends the round.
+
+    Args:
+        cards_being_added: Number of cards being added (1 for normal, 2 for double auction)
+
+    Returns True if adding these cards would reach or exceed 5 for this artist.
+    """
     counts = get_artist_count_this_round(db, game)
-    return counts.get(artist, 0) >= 4  # Will be 5th after playing
+    current_count = counts.get(artist, 0)
+    return current_count + cards_being_added >= 5
 
 
 def play_card(
@@ -234,8 +242,8 @@ def add_double_card(
     hand.pop(card_index)
     set_player_hand(player, hand)
 
-    # Check if adding this card ends the round
-    is_round_ending = check_round_end(db, game, second_card["artist"])
+    # Check if adding BOTH cards ends the round (first double card + second card = 2 cards)
+    is_round_ending = check_round_end(db, game, second_card["artist"], cards_being_added=2)
 
     if is_round_ending:
         # Both cards are unsold
