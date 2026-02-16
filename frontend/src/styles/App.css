@@ -20,11 +20,26 @@
   --text-primary: #eee;
   --text-secondary: #aaa;
 
-  --artist-carvalho: #e74c3c;
-  --artist-martins: #3498db;
-  --artist-melim: #2ecc71;
-  --artist-silveira: #f39c12;
-  --artist-thaler: #9b59b6;
+  /* Artist colors - vibrant and thematic */
+  --artist-carvalho: #FFD700;      /* Gold/Yellow - Geometric */
+  --artist-carvalho-dark: #B8860B;
+  --artist-carvalho-bg: rgba(255, 215, 0, 0.15);
+
+  --artist-thaler: #00A8CC;         /* Cyan/Blue - Ocean */
+  --artist-thaler-dark: #006994;
+  --artist-thaler-bg: rgba(0, 168, 204, 0.15);
+
+  --artist-melim: #DC143C;          /* Crimson/Red - Urban */
+  --artist-melim-dark: #8B0000;
+  --artist-melim-bg: rgba(220, 20, 60, 0.15);
+
+  --artist-martins: #228B22;        /* Forest Green - Botanical */
+  --artist-martins-dark: #006400;
+  --artist-martins-bg: rgba(34, 139, 34, 0.15);
+
+  --artist-silveira: #FF6B00;       /* Vivid Orange - Cosmic */
+  --artist-silveira-dark: #CC5500;
+  --artist-silveira-bg: rgba(255, 107, 0, 0.15);
 
   --radius: 8px;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -451,13 +466,29 @@ button:disabled {
   border-radius: var(--radius);
   padding: 12px;
   text-align: center;
+  transition: all 0.2s;
 }
 
-.artist-column.artist-carvalho { border-top: 3px solid var(--artist-carvalho); }
-.artist-column.artist-martins { border-top: 3px solid var(--artist-martins); }
-.artist-column.artist-melim { border-top: 3px solid var(--artist-melim); }
-.artist-column.artist-silveira { border-top: 3px solid var(--artist-silveira); }
-.artist-column.artist-thaler { border-top: 3px solid var(--artist-thaler); }
+.artist-column.artist-carvalho {
+  border-top: 4px solid var(--artist-carvalho);
+  background: linear-gradient(180deg, var(--artist-carvalho-bg) 0%, var(--bg-medium) 30%);
+}
+.artist-column.artist-thaler {
+  border-top: 4px solid var(--artist-thaler);
+  background: linear-gradient(180deg, var(--artist-thaler-bg) 0%, var(--bg-medium) 30%);
+}
+.artist-column.artist-melim {
+  border-top: 4px solid var(--artist-melim);
+  background: linear-gradient(180deg, var(--artist-melim-bg) 0%, var(--bg-medium) 30%);
+}
+.artist-column.artist-martins {
+  border-top: 4px solid var(--artist-martins);
+  background: linear-gradient(180deg, var(--artist-martins-bg) 0%, var(--bg-medium) 30%);
+}
+.artist-column.artist-silveira {
+  border-top: 4px solid var(--artist-silveira);
+  background: linear-gradient(180deg, var(--artist-silveira-bg) 0%, var(--bg-medium) 30%);
+}
 
 .artist-header {
   margin-bottom: 12px;
@@ -468,6 +499,12 @@ button:disabled {
   font-weight: bold;
   margin-bottom: 4px;
 }
+
+.artist-column.artist-carvalho .artist-name { color: var(--artist-carvalho); }
+.artist-column.artist-thaler .artist-name { color: var(--artist-thaler); }
+.artist-column.artist-melim .artist-name { color: var(--artist-melim); }
+.artist-column.artist-martins .artist-name { color: var(--artist-martins); }
+.artist-column.artist-silveira .artist-name { color: var(--artist-silveira); }
 
 .artist-value {
   display: inline-block;
@@ -569,16 +606,18 @@ button:disabled {
 }
 
 .card {
-  width: 80px;
-  height: 100px;
+  width: 90px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: var(--bg-medium);
-  border: 2px solid var(--bg-light);
+  border: 3px solid var(--bg-light);
   border-radius: var(--radius);
   transition: all 0.2s;
+  overflow: hidden;
+  padding: 0;
 }
 
 .card.playable {
@@ -586,26 +625,128 @@ button:disabled {
 }
 
 .card.playable:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.card.artist-carvalho { border-color: var(--artist-carvalho); }
-.card.artist-martins { border-color: var(--artist-martins); }
-.card.artist-melim { border-color: var(--artist-melim); }
-.card.artist-silveira { border-color: var(--artist-silveira); }
-.card.artist-thaler { border-color: var(--artist-thaler); }
+/* Artist-specific card styling with gradients */
+.card.artist-carvalho {
+  border-color: var(--artist-carvalho);
+  background: linear-gradient(135deg, var(--artist-carvalho-bg) 0%, var(--bg-medium) 100%);
+}
+.card.artist-thaler {
+  border-color: var(--artist-thaler);
+  background: linear-gradient(135deg, var(--artist-thaler-bg) 0%, var(--bg-medium) 100%);
+}
+.card.artist-melim {
+  border-color: var(--artist-melim);
+  background: linear-gradient(135deg, var(--artist-melim-bg) 0%, var(--bg-medium) 100%);
+}
+.card.artist-martins {
+  border-color: var(--artist-martins);
+  background: linear-gradient(135deg, var(--artist-martins-bg) 0%, var(--bg-medium) 100%);
+}
+.card.artist-silveira {
+  border-color: var(--artist-silveira);
+  background: linear-gradient(135deg, var(--artist-silveira-bg) 0%, var(--bg-medium) 100%);
+}
+
+/* Card artwork area */
+.card-artwork {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-artwork-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.artwork-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card.playable:hover .artwork-image {
+  transform: scale(1.05);
+}
+
+.artwork-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.artwork-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Card info section */
+.card-info {
+  width: 100%;
+  padding: 4px 6px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
 
 .card-artist {
   font-weight: bold;
-  font-size: 0.85rem;
-  margin-bottom: 4px;
+  font-size: 0.75rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.card.artist-carvalho .card-artist { color: var(--artist-carvalho); }
+.card.artist-thaler .card-artist { color: var(--artist-thaler); }
+.card.artist-melim .card-artist { color: var(--artist-melim); }
+.card.artist-martins .card-artist { color: var(--artist-martins); }
+.card.artist-silveira .card-artist { color: var(--artist-silveira); }
+
 .card-type {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--text-secondary);
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+/* Auction type icons */
+.auction-icon {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.auction-icon-text {
+  font-weight: bold;
+  font-size: 0.6rem;
+  background: var(--text-secondary);
+  color: var(--bg-dark);
+  padding: 1px 3px;
+  border-radius: 2px;
+  line-height: 1;
 }
 
 /* Turn Indicator */

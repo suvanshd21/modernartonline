@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { recordAuction } from '../api';
+
+// Gavel sound as base64 (short gavel hit)
+const GAVEL_SOUND = 'data:audio/wav;base64,UklGRpQFAABXQVZFZm10IBAAAAABAAEAESsAABErAAABAAgAZGF0YXAFAACAgICAgICAgICAgICAgICAgICAgHx4eHyAgICAgICEjJCMhHx0dHR4gISMkJCMhHhwbGxweISQmJiUjIR8dHR0eICEjJCUlJSQjIiEgICAgoSIjJCUlJSUkIyIhHx4eHyAhIiMkJSYmJiUkIyIgHx4dHR4fICEjJSYmJmYlJCMiIB8fHx8gIiMlJiYmJiYlJCMiIB8eHh4fICEjJSYmJiYmJSQjIiAfHh4eHx8gIiQlJiYmJiYlJCMiIB8eHh4fHyAiJCUmJiYmJiYlJCMhIB8eHh8fICAiJCUmJiYmJiYlJCMhIB8eHx8fICAiJCUmJiYmJiYlJCMhIB8fHx8gICAiJCUlJiYmJiYlJCMhIB8fHx8gICAiJCUlJiYmJiUlJCMhIB8fHyAgICAiJCUlJiYmJiUlJCMhIB8fICAgICAiJCUlJSYmJiUlJCMhIB8gICAgICAiJCUlJSYmJSUlJCMhICAgICAgICAiJCQlJSUlJSUkJCMhICAgICAgICAhIyQkJCQkJCQkIyIhICAgICAgICAhIyMjIyMjIyMjIiIhICAgICAgICAhIiIiIiIiIiIiIiEgICAgICAgICAhISEhISEhISEhISAgICAgICAgICAhISEgICAhISAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAfX19fX+AgYKDg4OCgYCAfn19fX1/gIKEhoiIiIeFgoB+fHt7fH6BhIiLjo6OjYuHhIB9e3p6fH+DiI2RlJSUko+LhoJ+e3p7foKHjZKXmpqZl5OOiYR/fHt8f4OJkJabnp6dnJiTjoiDf3x7fYGGjZSan6GhoJ2ZlI6Jg398fH6CiI+Wm6CjpKOhnpmUjoiDf3x9f4OJkJedoqWlpKKfm5aNiYN/fH1/g4qRmJ6jpqampaKem5WPioR/fX6Ag4qSmZ+kp6inpqShnpqUjoqEf31+gISLkpqfpKeoqKempKGem5WPioWAf3+AhYuTmp+kp6ioqKaloqCdmZSPi4aBgICBhYyTmqCkp6ioqKelloGdmZWSjoqGgoGBhIiOlZugo6anp6empaOgnpuXk4+LiIWDgoSHi5CWm5+ipKWmpqaloqCenJmWko+MiYaEhIaJjZKXm5+ipKWlpaWkoqCenJqXlJGOi4mHhoaIi4+TmJyfoaOkpKSkpKOioJ6cmpiVko+NioiHh4iLjpKWmp6goqOjo6OjoqKgnp2bmJaSj42LiYiIiYuOkZWYnJ+hoqKioqKioaCfnpyamJWTkI6MioiIiYqNkJOXmp2foKGhoaGhoaCfnp2cmpmXlZKQjoyKiYmKi42QkpWYmp2en5+fnp6dnJuamZiXlZSTkY+OjYuKioqLjI6QkpSWmJmanJycnJuamZiXlpWUk5KQj46NjIuKioqLjI2PkZOVl5mam5ubmpqZmJeWlZSSkZCPjo2Mi4uKioqLjI2OkJGTlJaXmJiYmJeXlpWVlJOSkZCPjo2NjIuLi4uLjI2Oj5CRkpOUlZaWlpaVlZSUk5KRkJCPjo6NjIyLi4uLi4yMjY6PkJCRkpOTlJSUlJOTk5KSkZGQj4+OjY2MjIuLi4uLjIyNjY6Pj5CRkZKSkpKSkpKRkZCQj4+Ojo2NjIyMi4uLi4yMjI2Njo6Pj5CQkZGRkZGRkJCQj4+Ojo6NjY2MjIyLi4uMjIyMjY2Ojo6Pj4+Qj4+Qj4+Pj46Ojo6NjY2NjIyMjIyMi4yMjI2Njo6Ojo6Ojo6Ojo6Ojo6NjY2NjY2MjIyMjIyMjIyMjY2NjY6Ojo6Ojo6Ojo6Ojo2NjY2NjY2NjIyMjIyMjIyMjI2NjY2Njo6Ojo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Ojo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Njo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Njo6Ojo6NjY2NjY2NjY2MjIyMjIyMjIyMjY2NjY2NjY2Ojo6Ojo6NjY2NjY2NjYyMjIyMjIyMjIyNjY2NjY2NjY2Ojo6Ojo2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY6Ojo6NjY2NjY2NjY2MjIyMjIyMjIyNjY2NjY2NjY2Njo6Ojo2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY6Ojo2NjY2NjY2NjYyMjIyMjIyMjI2NjY2NjY2NjY2Ojo6OjY2NjY2NjY2MjIyMjIyMjIyNjY2NjY2NjY2NjY2OjY2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyNjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyNjY2NjY2NjY2NjY2NjY2NjIyMjIyMjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjIyNjY2NjY2NjY2NjY2NjYyMjIyMjY2NjY2NjY2NjY2NjY2NjIyMjIyNjY2NjY2NjY2NjY2NjYyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjY2NjY2NjY2NjY2NjYyMjIyNjY2NjY2NjY2NjY2NjYyMjI2NjY2NjY2NjY2NjY2MjIyNjY2NjY2NjY2NjY2NjIyMjY2NjY2NjY2NjY2NjIyNjY2NjY2NjY2NjY2MjI2NjY2NjY2NjY2NjYyMjY2NjY2NjY2NjY2MjY2NjY2NjY2NjY2MjY2NjY2NjY2NjYyNjY2NjY2NjY2NjY2NjY2NjY2NjYyNjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2Ng==';
 
 function AuctionPanel({ gameState, playerId }) {
   const [winnerId, setWinnerId] = useState('');
   const [price, setPrice] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const gavelAudioRef = useRef(null);
 
   // Get the most recent card(s) that need auction result
   const pendingCards = gameState.cards_in_play.filter((c) => c.owner_id === null);
@@ -36,6 +40,11 @@ function AuctionPanel({ gameState, playerId }) {
         winnerId || null,
         priceNum
       );
+      // Play gavel sound on successful auction
+      if (gavelAudioRef.current) {
+        gavelAudioRef.current.currentTime = 0;
+        gavelAudioRef.current.play().catch(() => {}); // Ignore autoplay errors
+      }
       // Reset form
       setWinnerId('');
       setPrice('');
@@ -54,6 +63,9 @@ function AuctionPanel({ gameState, playerId }) {
 
   return (
     <div className="auction-panel">
+      {/* Gavel sound effect */}
+      <audio ref={gavelAudioRef} preload="auto" src={GAVEL_SOUND} />
+
       <h3>Record Auction Result</h3>
 
       {pendingCards.length > 0 && (

@@ -1,9 +1,10 @@
+// Artist order (left to right on board) - matches backend
 const ARTISTS = [
-  'Manuel Carvalho',
-  'Ramon Martins',
-  'Daniel Melim',
-  'Rafael Silveira',
-  'Sigrid Thaler',
+  'Manuel Carvalho',   // Yellow - Geometric
+  'Sigrid Thaler',     // Blue - Ocean
+  'Daniel Melim',      // Red - Urban
+  'Ramon Martins',     // Green - Botanical
+  'Rafael Silveira',   // Orange - Cosmic
 ];
 
 const artistColors = {

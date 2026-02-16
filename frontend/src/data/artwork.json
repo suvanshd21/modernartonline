@@ -1,0 +1,802 @@
+{
+  "Manuel Carvalho": {
+    "color": "yellow",
+    "style": "geometric",
+    "artwork": [
+      {
+        "object_id": "136841",
+        "title": "Verona Variation # 13",
+        "artist": "Anne Appleby",
+        "date": "2003",
+        "thumb_url": "https://api.nga.gov/iiif/58a18751-71ee-47ae-9b33-d08631d26c55/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/58a18751-71ee-47ae-9b33-d08631d26c55",
+        "themes": [
+          "geometric"
+        ]
+      },
+      {
+        "object_id": "78604",
+        "title": "Mitila III",
+        "artist": "Edda Renouf",
+        "date": "1975",
+        "thumb_url": "https://api.nga.gov/iiif/aebfe294-d44e-4a82-a349-926d8a682045/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/aebfe294-d44e-4a82-a349-926d8a682045",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "49072",
+        "title": "Composition II, Dark",
+        "artist": "Simon Hanta\u00ef",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/3a58a5f5-b0fc-4c71-8a47-2f4a470bcf74/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/3a58a5f5-b0fc-4c71-8a47-2f4a470bcf74",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "49987",
+        "title": "Composition II",
+        "artist": "Adja Yunkers",
+        "date": "1960",
+        "thumb_url": "https://api.nga.gov/iiif/dc678e15-01da-4b68-b95a-e010f9f35482/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/dc678e15-01da-4b68-b95a-e010f9f35482",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "54138",
+        "title": "Zenith",
+        "artist": "I. Rice Pereira",
+        "date": "1953",
+        "thumb_url": "https://api.nga.gov/iiif/c6e07c89-d694-4151-9003-06cde1b0439a/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/c6e07c89-d694-4151-9003-06cde1b0439a",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "56022",
+        "title": "The Name",
+        "artist": "Barnett Newman",
+        "date": "1949",
+        "thumb_url": "https://api.nga.gov/iiif/20eebdc2-7d2e-41e1-8bf7-5620152985eb/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/20eebdc2-7d2e-41e1-8bf7-5620152985eb",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "66894",
+        "title": "Tampa 7",
+        "artist": "Robert Rauschenberg",
+        "date": "1972",
+        "thumb_url": "https://api.nga.gov/iiif/37d614f3-f0ea-4857-9554-f3b256d2f250/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/37d614f3-f0ea-4857-9554-f3b256d2f250",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "77443",
+        "title": "One Room Drawing #7",
+        "artist": "Richard Tuttle",
+        "date": "1975",
+        "thumb_url": "https://api.nga.gov/iiif/8148a153-1716-4991-876b-3ae020b60321/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/8148a153-1716-4991-876b-3ae020b60321",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "75155",
+        "title": "Piano m\u00e9canique",
+        "artist": "Joan Mitchell",
+        "date": "1957",
+        "thumb_url": "https://api.nga.gov/iiif/364e88b1-7db0-474d-a75a-98651aac6571/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/364e88b1-7db0-474d-a75a-98651aac6571",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "74655",
+        "title": "+ Within + Painting",
+        "artist": "Robert Mangold",
+        "date": "1983",
+        "thumb_url": "https://api.nga.gov/iiif/bca70d69-4f7b-4ef5-9f4e-b3e835ac5e3f/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/bca70d69-4f7b-4ef5-9f4e-b3e835ac5e3f",
+        "themes": [
+          "geometric"
+        ]
+      },
+      {
+        "object_id": "68822",
+        "title": "Still Life [recto]",
+        "artist": "Mark Rothko",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/e9bd8fb0-675a-4ee8-9fbc-6b0668bbb7fa/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/e9bd8fb0-675a-4ee8-9fbc-6b0668bbb7fa",
+        "themes": [
+          "non-representational"
+        ]
+      },
+      {
+        "object_id": "67525",
+        "title": "Untitled (Seagram Mural)",
+        "artist": "Mark Rothko",
+        "date": "1959",
+        "thumb_url": "https://api.nga.gov/iiif/9b6711bd-0e2a-47e0-9982-5e39af7bbc81/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/9b6711bd-0e2a-47e0-9982-5e39af7bbc81",
+        "themes": [
+          "non-representational"
+        ]
+      }
+    ]
+  },
+  "Sigrid Thaler": {
+    "color": "blue",
+    "style": "ocean",
+    "artwork": [
+      {
+        "object_id": "69830",
+        "title": "Plate 14: A \"Sea Ape,\" Two Scorpion Fish, and Two Other Fish",
+        "artist": "Joris Hoefnagel",
+        "date": "c.1575/1590s",
+        "thumb_url": "https://api.nga.gov/iiif/fd088e4e-ec20-408d-a480-ac8d279d2eb4/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/fd088e4e-ec20-408d-a480-ac8d279d2eb4",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "73695",
+        "title": "The Barracuda (Esox barracuda)",
+        "artist": "Mark Catesby",
+        "date": "published 1754",
+        "thumb_url": "https://api.nga.gov/iiif/6078e0c8-5dc9-44e2-beea-76cfb216841e/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/6078e0c8-5dc9-44e2-beea-76cfb216841e",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "62759",
+        "title": "Whirlpools",
+        "artist": "M.C. Escher",
+        "date": "1957",
+        "thumb_url": "https://api.nga.gov/iiif/f9b7c8d6-e6e2-4d27-8ff7-9e433525b7c2/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/f9b7c8d6-e6e2-4d27-8ff7-9e433525b7c2",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "183809",
+        "title": "Port Manech",
+        "artist": "Martin Hardie",
+        "date": "1928",
+        "thumb_url": "https://api.nga.gov/iiif/6c2596f5-b7a7-434c-a82d-c47a9ca6cc8f/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/6c2596f5-b7a7-434c-a82d-c47a9ca6cc8f",
+        "themes": [
+          "seascape"
+        ]
+      },
+      {
+        "object_id": "199156",
+        "title": "Fisherman from Marken",
+        "artist": "Jan Toorop",
+        "date": "1896",
+        "thumb_url": "https://api.nga.gov/iiif/036c425c-9c25-4606-918c-79d3a0c8fa47/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/036c425c-9c25-4606-918c-79d3a0c8fa47",
+        "themes": [
+          "fishing"
+        ]
+      },
+      {
+        "object_id": "51232",
+        "title": "Entry of Mm. de Vroncourt, Tyllon, and Marimont",
+        "artist": "Jacques Callot",
+        "date": "1627",
+        "thumb_url": "https://api.nga.gov/iiif/d67b3d6a-f2c9-43a5-a920-de997eabf5aa/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/d67b3d6a-f2c9-43a5-a920-de997eabf5aa",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "54274",
+        "title": "Plane Filling II",
+        "artist": "M.C. Escher",
+        "date": "1957",
+        "thumb_url": "https://api.nga.gov/iiif/61e87896-1492-48d6-a38d-3f147bb8c3df/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/61e87896-1492-48d6-a38d-3f147bb8c3df",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "57929",
+        "title": "Shadows of Fish",
+        "artist": "Robert Allan Cale",
+        "date": "1969",
+        "thumb_url": "https://api.nga.gov/iiif/ee5c23ba-9e8f-47e1-a956-05e6e771eabd/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/ee5c23ba-9e8f-47e1-a956-05e6e771eabd",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "48072",
+        "title": "Sphinx Wearing a Crescent on Her Head",
+        "artist": "Jean Mignon",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/88ac841c-3bb5-4eb7-9c8d-294722469b83/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/88ac841c-3bb5-4eb7-9c8d-294722469b83",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "34352",
+        "title": "Ground Game (Le gibier a poil)",
+        "artist": "Andr\u00e9 Dunoyer de Segonzac",
+        "date": "1935",
+        "thumb_url": "https://api.nga.gov/iiif/b63cb066-6f43-40d9-8441-a59e38223275/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/b63cb066-6f43-40d9-8441-a59e38223275",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "11858",
+        "title": "Jupiter",
+        "artist": "Abraham de Bruyn",
+        "date": "1569",
+        "thumb_url": "https://api.nga.gov/iiif/a7e2e8c0-e358-4fb5-a360-26ea54c6fab5/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/a7e2e8c0-e358-4fb5-a360-26ea54c6fab5",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "49155",
+        "title": "Shark and Sonar",
+        "artist": "Benton Murdoch Spruance",
+        "date": "1952",
+        "thumb_url": "https://api.nga.gov/iiif/1578a5d1-2f1b-478b-bf6b-0220c59546e2/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/1578a5d1-2f1b-478b-bf6b-0220c59546e2",
+        "themes": [
+          "fish"
+        ]
+      },
+      {
+        "object_id": "69842",
+        "title": "Plate 25: Mediterranean Rainbow Wrasse, Other Wrasse, a Swallowtail Sea Perch(?), Several \"Anthiae,\" and Other Fish",
+        "artist": "Joris Hoefnagel",
+        "date": "c.1575/1590s",
+        "thumb_url": "https://api.nga.gov/iiif/77d2e209-6a82-440f-bb97-22c8c92db894/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/77d2e209-6a82-440f-bb97-22c8c92db894",
+        "themes": [
+          "fish"
+        ]
+      }
+    ]
+  },
+  "Daniel Melim": {
+    "color": "red",
+    "style": "urban",
+    "artwork": [
+      {
+        "object_id": "2791",
+        "title": "Le festin royal",
+        "artist": "Jean-Michel Moreau",
+        "date": "1782",
+        "thumb_url": "https://api.nga.gov/iiif/be0589e7-ddc1-43ea-899c-657e9326b0e0/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/be0589e7-ddc1-43ea-899c-657e9326b0e0",
+        "themes": [
+          "interior"
+        ]
+      },
+      {
+        "object_id": "85579",
+        "title": "Two Figures Seated on the Rocks",
+        "artist": "Milton Avery",
+        "date": "c. 1943",
+        "thumb_url": "https://api.nga.gov/iiif/fcdcd192-82a3-4925-9469-b474dddebfde/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/fcdcd192-82a3-4925-9469-b474dddebfde",
+        "themes": [
+          "topographical"
+        ]
+      },
+      {
+        "object_id": "147182",
+        "title": "No Fuel",
+        "artist": "Donna Miller",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/d7343156-f445-4fe7-8227-cfab379369cf/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/d7343156-f445-4fe7-8227-cfab379369cf",
+        "themes": [
+          "interior"
+        ]
+      },
+      {
+        "object_id": "95017",
+        "title": "Distant Landscape",
+        "artist": "Alex Katz",
+        "date": "1950s",
+        "thumb_url": "https://api.nga.gov/iiif/851947c8-9f6c-4238-804d-39343023b09d/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/851947c8-9f6c-4238-804d-39343023b09d",
+        "themes": [
+          "topographical"
+        ]
+      },
+      {
+        "object_id": "58427",
+        "title": "Town in Winter",
+        "artist": "Donald Carlisle Greason",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/7d019ad7-f181-4471-a4f0-3c14293a1397/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/7d019ad7-f181-4471-a4f0-3c14293a1397",
+        "themes": [
+          "exterior"
+        ]
+      },
+      {
+        "object_id": "63958",
+        "title": "Untitled",
+        "artist": "Seymour Rosofsky",
+        "date": "1968",
+        "thumb_url": "https://api.nga.gov/iiif/b8e58797-8438-4f91-8248-01810fad6e0c/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/b8e58797-8438-4f91-8248-01810fad6e0c",
+        "themes": [
+          "interior"
+        ]
+      },
+      {
+        "object_id": "2865",
+        "title": "La raclee avec des roses (The Thrashing with Roses)",
+        "artist": "Antoine Cosme Giraud after Antoine Borel",
+        "date": "in or after 1810",
+        "thumb_url": "https://api.nga.gov/iiif/e1bb00df-760a-4d64-b8ea-c27190d54111/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/e1bb00df-760a-4d64-b8ea-c27190d54111",
+        "themes": [
+          "interior"
+        ]
+      },
+      {
+        "object_id": "42755",
+        "title": "Le faucon",
+        "artist": "Jean Dambrun and Jean-Baptiste Tilliard after Jean-Honor\u00e9 Fragonard",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/1dd6c249-367f-4031-b6be-4f55b180e090/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/1dd6c249-367f-4031-b6be-4f55b180e090",
+        "themes": [
+          "interior"
+        ]
+      },
+      {
+        "object_id": "2814",
+        "title": "The Happy Union",
+        "artist": "Louis Bosse after Sigmund Freudenberger",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/48488475-e2e6-46ec-86a3-28c025d856bb/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/48488475-e2e6-46ec-86a3-28c025d856bb",
+        "themes": [
+          "interior"
+        ]
+      },
+      {
+        "object_id": "45989",
+        "title": "Two Friars on a Hillside [recto]",
+        "artist": "Fra Bartolommeo",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/d9d6db01-d478-4e41-b976-dc77224a0af4/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/d9d6db01-d478-4e41-b976-dc77224a0af4",
+        "themes": [
+          "topographical"
+        ]
+      },
+      {
+        "object_id": "4695",
+        "title": "Moonlight, Caceres [recto]",
+        "artist": "Sir Muirhead Bone",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/aeea3205-46e9-4bb2-bb6e-8f20e0a95d53/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/aeea3205-46e9-4bb2-bb6e-8f20e0a95d53",
+        "themes": [
+          "exterior"
+        ]
+      },
+      {
+        "object_id": "183455",
+        "title": "Napoleon Bridge, Paris",
+        "artist": "Frank P. Whiting",
+        "date": "1947",
+        "thumb_url": "https://api.nga.gov/iiif/88941901-e54d-42e2-ac1c-aef36dce8eb3/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/88941901-e54d-42e2-ac1c-aef36dce8eb3",
+        "themes": [
+          "architecture"
+        ]
+      },
+      {
+        "object_id": "119972",
+        "title": "Tower",
+        "artist": "Walter Pach",
+        "date": "1924",
+        "thumb_url": "https://api.nga.gov/iiif/a0d2c5c1-870f-40c5-9a45-0ab05ca1a025/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/a0d2c5c1-870f-40c5-9a45-0ab05ca1a025",
+        "themes": [
+          "architecture"
+        ]
+      },
+      {
+        "object_id": "3119",
+        "title": "Ah! Jeune homme \u00e0 ton bienfaiteur",
+        "artist": "Nicolas Delaunay after Jean-Michel Moreau",
+        "date": "1774",
+        "thumb_url": "https://api.nga.gov/iiif/e9f7bbf3-e404-4330-83ce-0fcf483ede71/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/e9f7bbf3-e404-4330-83ce-0fcf483ede71",
+        "themes": [
+          "interior"
+        ]
+      }
+    ]
+  },
+  "Ramon Martins": {
+    "color": "green",
+    "style": "botanical",
+    "artwork": [
+      {
+        "object_id": "6691",
+        "title": "Joachim and the Angel",
+        "artist": "Albrecht D\u00fcrer",
+        "date": "c. 1504",
+        "thumb_url": "https://api.nga.gov/iiif/8a8a800c-c072-4c97-84bd-b50174f72849/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/8a8a800c-c072-4c97-84bd-b50174f72849",
+        "themes": [
+          "animal"
+        ]
+      },
+      {
+        "object_id": "73635",
+        "title": "The Round Crested Duck (Mergus cucullatus)",
+        "artist": "Mark Catesby",
+        "date": "published 1731-1743",
+        "thumb_url": "https://api.nga.gov/iiif/da3c4580-8dae-4904-9566-c1e916411c89/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/da3c4580-8dae-4904-9566-c1e916411c89",
+        "themes": [
+          "bird"
+        ]
+      },
+      {
+        "object_id": "34877",
+        "title": "Flower Print no.4",
+        "artist": "Nicolas Cochin after Balthasar Moncornet",
+        "date": "1645",
+        "thumb_url": "https://api.nga.gov/iiif/1f4e5c49-7de0-4716-a53c-addd03dde1ad/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/1f4e5c49-7de0-4716-a53c-addd03dde1ad",
+        "themes": [
+          "plant"
+        ]
+      },
+      {
+        "object_id": "48789",
+        "title": "Snowdrops",
+        "artist": "Valerie Thornton",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/c4b4115a-1eaa-4e89-befc-b3b8c3781841/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/c4b4115a-1eaa-4e89-befc-b3b8c3781841",
+        "themes": [
+          "plant"
+        ]
+      },
+      {
+        "object_id": "39690",
+        "title": "Die Tanzerin mit dem Affen",
+        "artist": "Imre Reiner",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/bed2825b-816a-4d1d-81a2-bfe66cb7a49d/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/bed2825b-816a-4d1d-81a2-bfe66cb7a49d",
+        "themes": [
+          "animal"
+        ]
+      },
+      {
+        "object_id": "32563",
+        "title": "Rough-legged Falcon",
+        "artist": "Robert Havell after John James Audubon",
+        "date": "1838",
+        "thumb_url": "https://api.nga.gov/iiif/d82973ea-9328-423c-b36c-0fdbd9728ff1/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/d82973ea-9328-423c-b36c-0fdbd9728ff1",
+        "themes": [
+          "bird"
+        ]
+      },
+      {
+        "object_id": "221007",
+        "title": "Arms of the Bishopric of Eichst\u00e4tt and of Its Bishop, Wilhelm of Reichenau",
+        "artist": "German 15th Century",
+        "date": "1480",
+        "thumb_url": "https://api.nga.gov/iiif/c0738045-2ce5-464f-9195-77024f805047/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/c0738045-2ce5-464f-9195-77024f805047",
+        "themes": [
+          "animal"
+        ]
+      },
+      {
+        "object_id": "130607",
+        "title": "Northern Landscape Fantasy Evoking Tivoli",
+        "artist": "Nicolaes Pietersz Berchem",
+        "date": "c. 1664",
+        "thumb_url": "https://api.nga.gov/iiif/9fd03562-ef03-45f2-bc62-a68f1b4e922f/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/9fd03562-ef03-45f2-bc62-a68f1b4e922f",
+        "themes": [
+          "animal"
+        ]
+      },
+      {
+        "object_id": "3903",
+        "title": "Christ Crowned with Thorns",
+        "artist": "Workshop of Master of the Borders with the Four Fathers of the Church",
+        "date": "1460/1480",
+        "thumb_url": "https://api.nga.gov/iiif/cbc21f32-53db-47d5-abac-b1324e3c36aa/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/cbc21f32-53db-47d5-abac-b1324e3c36aa",
+        "themes": [
+          "plant"
+        ]
+      },
+      {
+        "object_id": "225735",
+        "title": "a u. c Thujopsis dolabrata; b Ruta graveolens",
+        "artist": "Karl Blossfeldt",
+        "date": "1928",
+        "thumb_url": "https://api.nga.gov/iiif/b9887fd8-5e14-4c06-ae06-ae2bd12dc955/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/b9887fd8-5e14-4c06-ae06-ae2bd12dc955",
+        "themes": [
+          "botanical"
+        ]
+      },
+      {
+        "object_id": "39663",
+        "title": "Illustration to Voltaire, \"La Princesse de Babilone\"",
+        "artist": "Imre Reiner",
+        "date": "1941",
+        "thumb_url": "https://api.nga.gov/iiif/cadb6a83-c5df-4127-b7a7-f18a09d7f2a3/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/cadb6a83-c5df-4127-b7a7-f18a09d7f2a3",
+        "themes": [
+          "plant"
+        ]
+      },
+      {
+        "object_id": "183206",
+        "title": "The Shepherd",
+        "artist": "Carl M. Schultheiss",
+        "date": "1948",
+        "thumb_url": "https://api.nga.gov/iiif/ae5cdee1-5607-4179-906b-9c4ba89c87c6/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/ae5cdee1-5607-4179-906b-9c4ba89c87c6",
+        "themes": [
+          "landscape"
+        ]
+      },
+      {
+        "object_id": "153961",
+        "title": "Ryno et Hermangarde (Ryno and Hermangarde)",
+        "artist": "F\u00e9lix-Hilaire Buhot",
+        "date": "1847-1898",
+        "thumb_url": "https://api.nga.gov/iiif/7efd896a-5510-442c-979c-0685e0c9e21b/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/7efd896a-5510-442c-979c-0685e0c9e21b",
+        "themes": [
+          "bird"
+        ]
+      },
+      {
+        "object_id": "183394",
+        "title": "Midsummer Shade",
+        "artist": "Stow Wengenroth",
+        "date": "1953",
+        "thumb_url": "https://api.nga.gov/iiif/a194abe3-79c7-44f9-9993-92fceb57fe9d/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/a194abe3-79c7-44f9-9993-92fceb57fe9d",
+        "themes": [
+          "landscape"
+        ]
+      },
+      {
+        "object_id": "62837",
+        "title": "Chrysanthemum",
+        "artist": "M.C. Escher",
+        "date": "probably 1916",
+        "thumb_url": "https://api.nga.gov/iiif/cbfdf996-f010-4474-9234-8dfdf5f35c38/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/cbfdf996-f010-4474-9234-8dfdf5f35c38",
+        "themes": [
+          "botanical"
+        ]
+      }
+    ]
+  },
+  "Rafael Silveira": {
+    "color": "orange",
+    "style": "cosmic",
+    "artwork": [
+      {
+        "object_id": "8949",
+        "title": "The Adoration of the Kings [recto]",
+        "artist": "German 16th Century",
+        "date": "c. 1600",
+        "thumb_url": "https://api.nga.gov/iiif/d5d38539-477f-46d2-bff5-fb1942561124/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/d5d38539-477f-46d2-bff5-fb1942561124",
+        "themes": [
+          "life of christ"
+        ]
+      },
+      {
+        "object_id": "100781",
+        "title": "The Muse Terpsichore",
+        "artist": "Augustin Pajou",
+        "date": "c. 1768",
+        "thumb_url": "https://api.nga.gov/iiif/175f174c-702e-428a-bf71-9845a1a3dd29/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/175f174c-702e-428a-bf71-9845a1a3dd29",
+        "themes": [
+          "mythology"
+        ]
+      },
+      {
+        "object_id": "206793",
+        "title": "The Birth of Venus",
+        "artist": "Gaetano Gandolfi",
+        "date": "late 1770s",
+        "thumb_url": "https://api.nga.gov/iiif/87a9aa52-0418-4853-a5b6-c0596394595d/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/87a9aa52-0418-4853-a5b6-c0596394595d",
+        "themes": [
+          "classical"
+        ]
+      },
+      {
+        "object_id": "837",
+        "title": "Lucretia",
+        "artist": "Jacopo Francia",
+        "date": "c. 1510",
+        "thumb_url": "https://api.nga.gov/iiif/23264886-af5a-410c-9aa6-f0feaaab76e2/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/23264886-af5a-410c-9aa6-f0feaaab76e2",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "74059",
+        "title": "Christ Bearing the Cross (Kreuztragung)",
+        "artist": "Lovis Corinth",
+        "date": "1916",
+        "thumb_url": "https://api.nga.gov/iiif/c2da5d3c-2813-409e-aaf0-0b936cba0549/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/c2da5d3c-2813-409e-aaf0-0b936cba0549",
+        "themes": [
+          "life of christ"
+        ]
+      },
+      {
+        "object_id": "163771",
+        "title": "Circe Turns a Companion of Odysseus into a Swine",
+        "artist": "Romare Bearden",
+        "date": "1979",
+        "thumb_url": "https://api.nga.gov/iiif/88b96344-24ed-447d-b218-b7e97781aac6/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/88b96344-24ed-447d-b218-b7e97781aac6",
+        "themes": [
+          "mythology"
+        ]
+      },
+      {
+        "object_id": "62299",
+        "title": "Saint Nicholas",
+        "artist": "Sebald Beham",
+        "date": "",
+        "thumb_url": "https://api.nga.gov/iiif/0a82d6d2-d320-4dfd-8d11-2dbf48ad06e0/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/0a82d6d2-d320-4dfd-8d11-2dbf48ad06e0",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "71477",
+        "title": "Saint Christopher",
+        "artist": "Orazio Borgianni",
+        "date": "c. 1615",
+        "thumb_url": "https://api.nga.gov/iiif/31fd87b0-3347-47a1-92c4-1e4aebd783bb/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/31fd87b0-3347-47a1-92c4-1e4aebd783bb",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "70971",
+        "title": "Penelope and Her Maids Weaving",
+        "artist": "Master FG, after Francesco Primaticcio",
+        "date": "c. 1545",
+        "thumb_url": "https://api.nga.gov/iiif/a2577082-15ae-47c5-bc0b-3ae2ee40b0f1/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/a2577082-15ae-47c5-bc0b-3ae2ee40b0f1",
+        "themes": [
+          "classical"
+        ]
+      },
+      {
+        "object_id": "163321",
+        "title": "Saint Sebastian",
+        "artist": "Leendert van der Cooghen",
+        "date": "1665",
+        "thumb_url": "https://api.nga.gov/iiif/d0f836b7-cc51-4402-87fc-c8676b718c7e/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/d0f836b7-cc51-4402-87fc-c8676b718c7e",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "74173",
+        "title": "Saint Jerome in the Desert Listening to the Angels",
+        "artist": "Giovanni Battista Tiepolo",
+        "date": "c. 1732",
+        "thumb_url": "https://api.nga.gov/iiif/347bd791-602f-430f-8bde-e86efdc68bd6/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/347bd791-602f-430f-8bde-e86efdc68bd6",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "99133",
+        "title": "Saint Michael Defeating the Devils",
+        "artist": "Master E.S.",
+        "date": "1467",
+        "thumb_url": "https://api.nga.gov/iiif/6eda276a-dd69-4a9a-a1a6-ec7c69810337/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/6eda276a-dd69-4a9a-a1a6-ec7c69810337",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "206719",
+        "title": "The Site of the Bed and Oratory of Saint Francis (Luogo del 'letto' e dell'oratorio di San Francesco) [plate R]",
+        "artist": "Jacopo Ligozzi (artist), Anonymous engraver possibly Domenico Falcini, Lino Moroni (author)",
+        "date": "1612",
+        "thumb_url": "https://api.nga.gov/iiif/c25ac631-f473-462a-9feb-20fbae8a8c75/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/c25ac631-f473-462a-9feb-20fbae8a8c75",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "63015",
+        "title": "Statue of Cleopatra",
+        "artist": "Hubert Robert",
+        "date": "probably c. 1754/1765",
+        "thumb_url": "https://api.nga.gov/iiif/fb0a026f-1063-4e47-a1d7-ff8d32ce6af6/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/fb0a026f-1063-4e47-a1d7-ff8d32ce6af6",
+        "themes": [
+          "classical"
+        ]
+      },
+      {
+        "object_id": "159063",
+        "title": "Saint Mark",
+        "artist": "Giorgio Vasari",
+        "date": "1570-1571",
+        "thumb_url": "https://api.nga.gov/iiif/6f1221c0-89e0-4351-ab9d-643a0d4eb497/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/6f1221c0-89e0-4351-ab9d-643a0d4eb497",
+        "themes": [
+          "saints"
+        ]
+      },
+      {
+        "object_id": "41589",
+        "title": "An Episode from the Life of Publius Cornelius Scipio",
+        "artist": "Giovanni Bellini",
+        "date": "after 1506",
+        "thumb_url": "https://api.nga.gov/iiif/9c048501-ff74-46f1-b3c7-890cc7d86dd0/full/!200,200/0/default.jpg",
+        "iiif_base": "https://api.nga.gov/iiif/9c048501-ff74-46f1-b3c7-890cc7d86dd0",
+        "themes": [
+          "classical"
+        ]
+      }
+    ]
+  }
+}

@@ -30,6 +30,9 @@ const AUCTION_INFO = {
   }
 };
 
+// Gavel sound as base64
+const GAVEL_SOUND = 'data:audio/wav;base64,UklGRpQFAABXQVZFZm10IBAAAAABAAEAESsAABErAAABAAgAZGF0YXAFAACAgICAgICAgICAgICAgICAgICAgHx4eHyAgICAgICEjJCMhHx0dHR4gISMkJCMhHhwbGxweISQmJiUjIR8dHR0eICEjJCUlJSQjIiEgICAgoSIjJCUlJSUkIyIhHx4eHyAhIiMkJSYmJiUkIyIgHx4dHR4fICEjJSYmJmYlJCMiIB8fHx8gIiMlJiYmJiYlJCMiIB8eHh4fICEjJSYmJiYmJSQjIiAfHh4eHx8gIiQlJiYmJiYlJCMiIB8eHh4fHyAiJCUmJiYmJiYlJCMhIB8eHh8fICAiJCUmJiYmJiYlJCMhIB8eHx8fICAiJCUmJiYmJiYlJCMhIB8fHx8gICAiJCUlJiYmJiYlJCMhIB8fHx8gICAiJCUlJiYmJiUlJCMhIB8fHyAgICAiJCUlJiYmJiUlJCMhIB8gICAgICAiJCUlJSYmJiUlJCMhIB8gICAgICAiJCUlJSYmJSUlJCMhICAgICAgICAiJCQlJSUlJSUkJCMhICAgICAgICAhIyQkJCQkJCQkIyIhICAgICAgICAhIyMjIyMjIyMjIiIhICAgICAgICAhIiIiIiIiIiIiIiEgICAgICAgICAhISEhISEhISEhISAgICAgICAgICAhISEgICAhISAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAfX19fX+AgYKDg4OCgYCAfn19fX1/gIKEhoiIiIeFgoB+fHt7fH6BhIiLjo6OjYuHhIB9e3p6fH+DiI2RlJSUko+LhoJ+e3p7foKHjZKXmpqZl5OOiYR/fHt8f4OJkJabnp6dnJiTjoiDf3x7fYGGjZSan6GhoJ2ZlI6Jg398fH6CiI+Wm6CjpKOhnpmUjoiDf3x9f4OJkJedoqWlpKKfm5aNiYN/fH1/g4qRmJ6jpqampaKem5WPioR/fX6Ag4qSmZ+kp6inpqShnpqUjoqEf31+gISLkpqfpKeoqKempKGem5WPioWAf3+AhYuTmp+kp6ioqKelloGdmZSPi4aBgICBhYyTmqCkp6ioqKelloGdmZWSjoqGgoGBhIiOlZugo6anp6empaOgnpuXk4+LiIWDgoSHi5CWm5+ipKWmpqaloqCenJmWko+MiYaEhIaJjZKXm5+ipKWlpaWkoqCenJqXlJGOi4mHhoaIi4+TmJyfoaOkpKSkpKOioJ6cmpiVko+NioiHh4iLjpKWmp6goqOjo6OjoqKgnp2bmJaSj42LiYiIiYuOkZWYnJ+hoqKioqKioaCfnpyamJWTkI6MioiIiYqNkJOXmp2foKGhoaGhoaCfnp2cmpmXlZKQjoyKiYmKi42QkpWYmp2en5+fnp6dnJuamZiXlZSTkY+OjYuKioqLjI6QkpSWmJmanJycnJuamZiXlpWUk5KQj46NjIuKioqLjI2PkZOVl5mam5ubmpqZmJeWlZSSkZCPjo2Mi4uKioqLjI2Oj5CRkpOUlZaWlpaVlZSUk5KRkJCPjo6NjIyLi4uLi4yMjY6PkJCRkpOTlJSUlJOTk5KSkZGQj4+OjY2MjIuLi4uLjIyNjY6Pj5CRkZKSkpKSkpKRkZCQj4+Ojo2NjIyMi4uLi4yMjI2Njo6Pj5CQkZGRkZGRkJCQj4+Ojo6NjY2MjIyLi4uMjIyMjY2Ojo6Pj4+Qj4+Qj4+Pj46Ojo6NjY2NjIyMjIyMi4yMjI2Njo6Ojo6Ojo6Ojo6Ojo6NjY2NjY2MjIyMjIyMjIyMjY2NjY6Ojo6Ojo6Ojo6Ojo2NjY2NjY2NjIyMjIyMjIyMjI2NjY2Njo6Ojo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Ojo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Njo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Njo6Ojo6NjY2NjY2NjY2MjIyMjIyMjIyMjY2NjY2NjY2Ojo6Ojo6NjY2NjY2NjYyMjIyMjIyMjIyNjY2NjY2NjY2Ojo6Ojo2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY6Ojo6NjY2NjY2NjY2MjIyMjIyMjIyNjY2NjY2NjY2Njo6Ojo2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY6Ojo2NjY2NjY2NjYyMjIyMjIyMjI2NjY2NjY2NjY2Ojo6OjY2NjY2NjY2MjIyMjIyMjIyNjY2NjY2NjY2NjY2OjY2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyNjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyNjY2NjY2NjY2NjY2NjY2NjIyMjIyMjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjIyNjY2NjY2NjY2NjY2NjYyMjIyMjY2NjY2NjY2NjY2NjY2NjIyMjIyNjY2NjY2NjY2NjY2NjYyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjY2NjY2NjY2NjY2NjYyMjIyNjY2NjY2NjY2NjY2NjYyMjI2NjY2NjY2NjY2NjY2MjIyNjY2NjY2NjY2NjY2NjIyMjY2NjY2NjY2NjY2NjIyNjY2NjY2NjY2NjY2MjI2NjY2NjY2NjY2NjYyMjY2NjY2NjY2NjY2MjY2NjY2NjY2NjY2MjY2NjY2NjY2NjYyNjY2NjY2NjY2NjY2NjY2NjY2NjYyNjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2Ng==';
+
 function GameBoard({ gameState, playerId, isConnected }) {
   const [error, setError] = useState('');
   const [actionInProgress, setActionInProgress] = useState(false);
@@ -37,7 +40,9 @@ function GameBoard({ gameState, playerId, isConnected }) {
   const [prevMoney, setPrevMoney] = useState(gameState.your_money);
   const [moneyChange, setMoneyChange] = useState(null);
   const prevTurnRef = useRef(gameState.current_turn_player_id);
+  const prevAuctionRef = useRef(gameState.awaiting_auction_result);
   const audioRef = useRef(null);
+  const gavelRef = useRef(null);
 
   const isMyTurn = gameState.current_turn_player_id === playerId;
   const isFinished = gameState.status === 'finished';
@@ -65,6 +70,18 @@ function GameBoard({ gameState, playerId, isConnected }) {
     }
     prevTurnRef.current = gameState.current_turn_player_id;
   }, [gameState.current_turn_player_id, playerId, awaitingAuction]);
+
+  // Play gavel sound when auction completes (for all players)
+  useEffect(() => {
+    if (prevAuctionRef.current === true && gameState.awaiting_auction_result === false) {
+      // Auction just completed - play gavel sound
+      if (gavelRef.current) {
+        gavelRef.current.currentTime = 0;
+        gavelRef.current.play().catch(() => {}); // Ignore autoplay errors
+      }
+    }
+    prevAuctionRef.current = gameState.awaiting_auction_result;
+  }, [gameState.awaiting_auction_result]);
 
   // Track money changes
   useEffect(() => {
@@ -156,6 +173,8 @@ function GameBoard({ gameState, playerId, isConnected }) {
       <audio ref={audioRef} preload="auto">
         <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdH2LkpONgXBkYW96ipOVkYZ5bmVhbH2Lk5aShHdtZWNwgI2UlpGEd25lZHCAjZSWkYR3bmVkcICNlJaRhHduZWRwgI2UlZCDdm1kY3CAjZOUkIN2bGNjcICNk5SQg3ZsY2NwgI2TlJCDdmxjY3CAjZOUkIN2bGNjcH+Nk5SQg3ZsY2NwgI2TlJCDdmxjY3CAjZOUkIN2bWRkcICNlJWRhHduZWVxgY6VlpKFd25mZnKCj5aXkoV4b2dncYGPl5eShXlwaGhyg5CYmJOGem9paXKDkJmZlIh7cGpqc4SRmZmUiXxxamtzhJGZmZSJfHFqa3OEkZmZlIl8cWprc4SRmZmUiXxxamtzhJGZmZSJfHBqanOEkZiYk4h6b2lpc4ORmJiTiHpvaWlygo+Xl5KFeG9nZ3GBj5aXkoV4b2dncYGOlZaRhHduZWRwgI2UlZGEd21kZHB/jJOUkIN2bGNjb36Mko+OgHNqZmZvfIuPj4B0a2VlbnuKjo5/c2plZG17iY2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2lkZG17iY2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2lkZG58io2Nf3NqZWVvfIuPj4B0a2ZmbnyLj4+AdGtmZm58i4+PgHRrZmZufIuPj4B0a2ZmbnyLj4+AdGtmZm58i4+PgHRrZmZufIuPj4B0a2ZmbnyLj4+AdGtmZm58i4+PgHRrZmZufIuPj4B0a2ZmbnyLj4+AdGtmZm58i4+PgHRrZmZufIuPj4B0a2ZmbnyLj4+AdGtmZm58io2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2lkZG17iY2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2lkZG17iY2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2lkZG17iY2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2lkZG17iY2Nf3NpZGRte4mNjX9zaWRkbXuJjY1/c2pkZW58io2OfnRqZWVufIqOjn90amVlbnyKjo5/dGplZW58io6Of3RqZWVufIqOjn90amVlbnyKjo5/dGplZW58io6Of3RqZWVufIqOjn90amVlbnyKjo5/dGplZW58io6Of3RqZWVufIqOjn90amVlbnyKjo5/dGplZW58io6Of3RqZWVufIqOjn90amVl" type="audio/wav" />
       </audio>
+      {/* Gavel sound for auction completion */}
+      <audio ref={gavelRef} preload="auto" src={GAVEL_SOUND} />
 
       {/* Confirmation modal */}
       {confirmCard !== null && cardToConfirm && (
