@@ -17,8 +17,6 @@ function GameWrapper() {
 
   // Handle WebSocket messages
   const handleMessage = useCallback((message) => {
-    console.log('WS message:', message.type, message.data);
-
     switch (message.type) {
       case 'game_state':
         setGameState(message.data);
@@ -72,7 +70,8 @@ function GameWrapper() {
         // But we can use the event data for notifications/UI feedback
         break;
       default:
-        console.log('Unknown message type:', message.type);
+        // Unknown message type - ignore
+        break;
     }
   }, []);
 
