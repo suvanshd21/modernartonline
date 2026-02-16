@@ -20,7 +20,6 @@ export function useGameWebSocket(gameCode, playerId, onMessage) {
     wsRef.current = ws;
 
     ws.onopen = () => {
-      console.log('WebSocket connected');
       setIsConnected(true);
     };
 
@@ -33,8 +32,7 @@ export function useGameWebSocket(gameCode, playerId, onMessage) {
       }
     };
 
-    ws.onclose = (event) => {
-      console.log('WebSocket closed:', event.code, event.reason);
+    ws.onclose = () => {
       setIsConnected(false);
 
       // Reconnect after 2 seconds

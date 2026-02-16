@@ -16,10 +16,15 @@ from .websocket import manager
 
 app = FastAPI(title="Modern Art Online", version="1.0.0")
 
-# CORS middleware
+# CORS middleware - allow FRONTEND_URL and localhost for development
+cors_origins = [FRONTEND_URL]
+if FRONTEND_URL.startswith("http://localhost"):
+    # In development, also allow common dev ports
+    cors_origins.extend(["http://localhost:5173", "http://localhost:3000"])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL, "http://localhost:5173", "http://localhost:3000"],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
