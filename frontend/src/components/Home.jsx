@@ -71,8 +71,8 @@ function Home() {
   if (mode === 'menu') {
     return (
       <div className="home">
-        <h1>Modern Art Online</h1>
-        <p className="subtitle">A virtual assistant for playing Modern Art</p>
+        <h1>Art Auction Game</h1>
+        <p className="subtitle">A virtual assistant for playing art auction games</p>
         <div className="menu-buttons">
           <button onClick={() => setMode('create')} className="btn-primary">
             Create Game

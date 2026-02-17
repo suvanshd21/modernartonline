@@ -1,5 +1,5 @@
 """
-Modern Art Online - FastAPI Application
+Art Auction Game - FastAPI Application
 """
 
 import json
@@ -14,7 +14,7 @@ from .routes import games, actions
 from .routes.games import build_game_state_response, get_private_data
 from .websocket import manager
 
-app = FastAPI(title="Modern Art Online", version="1.0.0")
+app = FastAPI(title="Art Auction Game", version="1.0.0")
 
 # CORS middleware - allow FRONTEND_URL and localhost for development
 cors_origins = [FRONTEND_URL]
@@ -44,7 +44,7 @@ async def startup():
 @app.get("/")
 async def root():
     """Health check endpoint."""
-    return {"status": "ok", "app": "Modern Art Online"}
+    return {"status": "ok", "app": "Art Auction Game"}
 
 
 @app.websocket("/ws/{game_code}/{player_id}")

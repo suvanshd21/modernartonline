@@ -1,6 +1,6 @@
-# Modern Art Online
+# Art Auction Game
 
-A web app for playing the **Modern Art** board game virtually with friends over video call.
+A web app for playing art auction games virtually with friends over video call.
 
 The app handles card dealing, money tracking, round management, and scoring — while you and your friends run the auctions live over Zoom/Google Meet.
 
@@ -36,7 +36,7 @@ brew install node
 
 ```bash
 git clone <your-repo-url>
-cd modernartonline
+cd art-auction-game
 ```
 
 ### 2. Start the Backend
@@ -70,38 +70,20 @@ Go to **http://localhost:5173**
 ### Gameplay
 - Cards appear at the bottom of your screen
 - On your turn, click a card to play it
-- The card's auction type is shown (Open, Once Around, Hidden, Fixed Price, or Double)
+- The card's auction type is shown
 - Run the auction over video call
 - Anyone can enter the result: select the winner and price, then click **Record Result**
 - The app handles money transfers and tracks everything
 
-### Auction Types (Quick Reference)
-| Type | How It Works |
-|------|--------------|
-| **Open** | Free bidding - anyone can bid anytime, highest wins |
-| **Once Around** | One bid each, clockwise from auctioneer's left |
-| **Hidden** | Everyone secretly picks amount, reveal simultaneously |
-| **Fixed Price** | Auctioneer sets price, others accept or pass |
-| **Double** | Can pair with another card of same artist |
-
-### Round End
-- When the 5th card of any artist is played, the round ends
-- Top 3 artists get value tiles (30k / 20k / 10k)
-- Players sell their paintings to the bank
-- Values accumulate across rounds!
-
-### Winning
-After 4 rounds, the player with the most money wins.
-
 ## Project Structure
 
 ```
-modernartonline/
+art-auction-game/
 ├── backend/           # Python FastAPI server
 │   ├── app/
 │   │   ├── main.py        # Entry point
 │   │   ├── models.py      # Database models
-│   │   ├── game_logic.py  # Game rules
+│   │   ├── game_logic.py  # Game logic
 │   │   ├── routes/        # API endpoints
 │   │   └── websocket.py   # Real-time updates
 │   └── pyproject.toml

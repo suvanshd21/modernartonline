@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Extract artwork from National Gallery of Art open data for Modern Art Online.
+Extract artwork from National Gallery of Art open data for Art Auction Game.
 
 Creates a JSON file with themed artwork for each artist:
-- Carvalho (Yellow): Geometric/Abstract
-- Sigrid (Blue): Seascapes/Marine
-- Melim (Red): Architecture/Urban
-- Martins (Green): Botanical/Nature
-- Silveira (Orange): Mythology/Fantasy
+- Novak (Yellow): Geometric/Abstract
+- Costa (Blue): Seascapes/Marine
+- Bauer (Red): Architecture/Urban
+- Vance (Green): Botanical/Nature
+- Ruiz (Orange): Mythology/Fantasy
 
 Usage:
     python scripts/extract_artwork.py /path/to/NationalGalleryOfArt/opendata
@@ -27,31 +27,31 @@ OUTPUT_PATH = Path(__file__).parent.parent / "frontend" / "src" / "data" / "artw
 
 # Theme mappings for each artist
 ARTIST_THEMES = {
-    "Manuel Carvalho": {
+    "Viktor Novak": {
         "themes": ["geometric", "non-representational"],
         "color": "yellow",
         "style": "geometric",
         "cards_needed": 12,
     },
-    "Sigrid Thaler": {
+    "Marina Costa": {
         "themes": ["seascape", "boat", "ship", "fish", "fishing", "seaside", "water"],
         "color": "blue",
         "style": "ocean",
         "cards_needed": 13,
     },
-    "Daniel Melim": {
+    "Leon Bauer": {
         "themes": ["architecture", "topographical", "exterior", "interior"],
         "color": "red",
         "style": "urban",
         "cards_needed": 14,
     },
-    "Ramon Martins": {
+    "Flora Vance": {
         "themes": ["botanical", "plant", "landscape", "nature", "animal", "bird"],
         "color": "green",
         "style": "botanical",
         "cards_needed": 15,
     },
-    "Rafael Silveira": {
+    "Celeste Ruiz": {
         "themes": ["mythology", "fantasy", "classical", "history", "saints", "life of christ"],
         "color": "orange",
         "style": "cosmic",
@@ -141,7 +141,7 @@ def find_artwork_for_theme(themes_wanted, object_themes, objects, images, count)
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Extract themed artwork from NGA open data for Modern Art Online"
+        description="Extract themed artwork from NGA open data for Art Auction Game"
     )
     parser.add_argument(
         "opendata_path",

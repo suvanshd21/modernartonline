@@ -1,7 +1,7 @@
 [project]
-name = "modern-art-online"
+name = "art-auction-game"
 version = "0.1.0"
-description = "Virtual assistant for playing Modern Art board game"
+description = "Virtual assistant for playing art auction games with friends"
 authors = [
     {name = "Suvansh"}
 ]

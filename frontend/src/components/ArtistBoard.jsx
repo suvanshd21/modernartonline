@@ -1,18 +1,18 @@
 // Artist order (left to right on board) - matches backend
 const ARTISTS = [
-  'Manuel Carvalho',   // Yellow - Geometric
-  'Sigrid Thaler',     // Blue - Ocean
-  'Daniel Melim',      // Red - Urban
-  'Ramon Martins',     // Green - Botanical
-  'Rafael Silveira',   // Orange - Cosmic
+  'Viktor Novak',    // Yellow - Geometric
+  'Marina Costa',    // Blue - Ocean
+  'Leon Bauer',      // Red - Urban
+  'Flora Vance',     // Green - Botanical
+  'Celeste Ruiz',    // Orange - Cosmic
 ];
 
 const artistColors = {
-  'Manuel Carvalho': 'artist-carvalho',
-  'Ramon Martins': 'artist-martins',
-  'Daniel Melim': 'artist-melim',
-  'Rafael Silveira': 'artist-silveira',
-  'Sigrid Thaler': 'artist-thaler',
+  'Viktor Novak': 'artist-novak',
+  'Marina Costa': 'artist-costa',
+  'Leon Bauer': 'artist-bauer',
+  'Flora Vance': 'artist-vance',
+  'Celeste Ruiz': 'artist-ruiz',
 };
 
 function ArtistBoard({ artistCounts, artistValues, cardsInPlay }) {

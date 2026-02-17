@@ -1,5 +1,5 @@
 /**
- * API helper functions for Modern Art Online
+ * API helper functions for Art Auction Game
  */
 
 const API_BASE = '/api';

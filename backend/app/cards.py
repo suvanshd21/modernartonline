@@ -1,12 +1,12 @@
 """
-Card deck definition for Modern Art.
+Card deck definition for Art Auction Game.
 
 70 cards total across 5 artists (left to right on board):
-- Manuel Carvalho: 12 cards (Yellow) - Abstract Geometric
-- Sigrid Thaler: 13 cards (Blue) - Ocean/Marine
-- Daniel Melim: 14 cards (Red) - Urban/Street Art
-- Ramon Martins: 15 cards (Green) - Botanical/Nature
-- Rafael Silveira: 16 cards (Orange) - Cosmic/Space
+- Viktor Novak: 12 cards (Yellow) - Abstract Geometric
+- Marina Costa: 13 cards (Blue) - Ocean/Marine
+- Leon Bauer: 14 cards (Red) - Urban/Street Art
+- Flora Vance: 15 cards (Green) - Botanical/Nature
+- Celeste Ruiz: 16 cards (Orange) - Cosmic/Space
 
 Auction types:
 - open: Free-form bidding
@@ -27,20 +27,20 @@ class CardDict(TypedDict):
 
 # Artist names in board order (left to right) - used for tie-breaking
 ARTISTS = [
-    "Manuel Carvalho",
-    "Sigrid Thaler",
-    "Daniel Melim",
-    "Ramon Martins",
-    "Rafael Silveira",
+    "Viktor Novak",
+    "Marina Costa",
+    "Leon Bauer",
+    "Flora Vance",
+    "Celeste Ruiz",
 ]
 
 # Artist colors for frontend
 ARTIST_COLORS = {
-    "Manuel Carvalho": "yellow",
-    "Sigrid Thaler": "blue",
-    "Daniel Melim": "red",
-    "Ramon Martins": "green",
-    "Rafael Silveira": "orange",
+    "Viktor Novak": "yellow",
+    "Marina Costa": "blue",
+    "Leon Bauer": "red",
+    "Flora Vance": "green",
+    "Celeste Ruiz": "orange",
 }
 
 # Auction types
@@ -49,7 +49,7 @@ AUCTION_TYPES = ["open", "once_around", "hidden", "fixed_price", "double"]
 # Artwork themes for each artist (used by frontend to display art)
 # Each artist has unique artwork pieces
 ARTWORK_THEMES = {
-    "Manuel Carvalho": {
+    "Viktor Novak": {
         # Abstract Geometric - Bold shapes, primary colors
         "theme": "geometric",
         "pieces": [
@@ -67,7 +67,7 @@ ARTWORK_THEMES = {
             {"id": 12, "name": "Abstract Unity", "icon": "unity"},
         ]
     },
-    "Sigrid Thaler": {
+    "Marina Costa": {
         # Ocean/Marine - Waves, underwater scenes
         "theme": "ocean",
         "pieces": [
@@ -86,7 +86,7 @@ ARTWORK_THEMES = {
             {"id": 13, "name": "Bioluminescence", "icon": "glow"},
         ]
     },
-    "Daniel Melim": {
+    "Leon Bauer": {
         # Urban/Street Art - Graffiti, cityscapes
         "theme": "urban",
         "pieces": [
@@ -106,7 +106,7 @@ ARTWORK_THEMES = {
             {"id": 14, "name": "Stencil Stories", "icon": "stencil"},
         ]
     },
-    "Ramon Martins": {
+    "Flora Vance": {
         # Botanical/Nature - Plants, forests, gardens
         "theme": "botanical",
         "pieces": [
@@ -127,7 +127,7 @@ ARTWORK_THEMES = {
             {"id": 15, "name": "Garden Path", "icon": "path"},
         ]
     },
-    "Rafael Silveira": {
+    "Celeste Ruiz": {
         # Cosmic/Space - Galaxies, nebulae, celestial
         "theme": "cosmic",
         "pieces": [
@@ -154,85 +154,85 @@ ARTWORK_THEMES = {
 # Cards per artist and their auction type distribution
 # Format: (artist, auction_type, artwork_id)
 DECK: list[CardDict] = [
-    # Manuel Carvalho (12 cards - Yellow - Geometric)
-    {"artist": "Manuel Carvalho", "auction_type": "open", "artwork_id": 1},
-    {"artist": "Manuel Carvalho", "auction_type": "open", "artwork_id": 2},
-    {"artist": "Manuel Carvalho", "auction_type": "once_around", "artwork_id": 3},
-    {"artist": "Manuel Carvalho", "auction_type": "once_around", "artwork_id": 4},
-    {"artist": "Manuel Carvalho", "auction_type": "hidden", "artwork_id": 5},
-    {"artist": "Manuel Carvalho", "auction_type": "hidden", "artwork_id": 6},
-    {"artist": "Manuel Carvalho", "auction_type": "fixed_price", "artwork_id": 7},
-    {"artist": "Manuel Carvalho", "auction_type": "fixed_price", "artwork_id": 8},
-    {"artist": "Manuel Carvalho", "auction_type": "double", "artwork_id": 9},
-    {"artist": "Manuel Carvalho", "auction_type": "double", "artwork_id": 10},
-    {"artist": "Manuel Carvalho", "auction_type": "double", "artwork_id": 11},
-    {"artist": "Manuel Carvalho", "auction_type": "open", "artwork_id": 12},
+    # Viktor Novak (12 cards - Yellow - Geometric)
+    {"artist": "Viktor Novak", "auction_type": "open", "artwork_id": 1},
+    {"artist": "Viktor Novak", "auction_type": "open", "artwork_id": 2},
+    {"artist": "Viktor Novak", "auction_type": "once_around", "artwork_id": 3},
+    {"artist": "Viktor Novak", "auction_type": "once_around", "artwork_id": 4},
+    {"artist": "Viktor Novak", "auction_type": "hidden", "artwork_id": 5},
+    {"artist": "Viktor Novak", "auction_type": "hidden", "artwork_id": 6},
+    {"artist": "Viktor Novak", "auction_type": "fixed_price", "artwork_id": 7},
+    {"artist": "Viktor Novak", "auction_type": "fixed_price", "artwork_id": 8},
+    {"artist": "Viktor Novak", "auction_type": "double", "artwork_id": 9},
+    {"artist": "Viktor Novak", "auction_type": "double", "artwork_id": 10},
+    {"artist": "Viktor Novak", "auction_type": "double", "artwork_id": 11},
+    {"artist": "Viktor Novak", "auction_type": "open", "artwork_id": 12},
 
-    # Sigrid Thaler (13 cards - Blue - Ocean)
-    {"artist": "Sigrid Thaler", "auction_type": "open", "artwork_id": 1},
-    {"artist": "Sigrid Thaler", "auction_type": "open", "artwork_id": 2},
-    {"artist": "Sigrid Thaler", "auction_type": "open", "artwork_id": 3},
-    {"artist": "Sigrid Thaler", "auction_type": "once_around", "artwork_id": 4},
-    {"artist": "Sigrid Thaler", "auction_type": "once_around", "artwork_id": 5},
-    {"artist": "Sigrid Thaler", "auction_type": "once_around", "artwork_id": 6},
-    {"artist": "Sigrid Thaler", "auction_type": "hidden", "artwork_id": 7},
-    {"artist": "Sigrid Thaler", "auction_type": "hidden", "artwork_id": 8},
-    {"artist": "Sigrid Thaler", "auction_type": "fixed_price", "artwork_id": 9},
-    {"artist": "Sigrid Thaler", "auction_type": "fixed_price", "artwork_id": 10},
-    {"artist": "Sigrid Thaler", "auction_type": "double", "artwork_id": 11},
-    {"artist": "Sigrid Thaler", "auction_type": "double", "artwork_id": 12},
-    {"artist": "Sigrid Thaler", "auction_type": "double", "artwork_id": 13},
+    # Marina Costa (13 cards - Blue - Ocean)
+    {"artist": "Marina Costa", "auction_type": "open", "artwork_id": 1},
+    {"artist": "Marina Costa", "auction_type": "open", "artwork_id": 2},
+    {"artist": "Marina Costa", "auction_type": "open", "artwork_id": 3},
+    {"artist": "Marina Costa", "auction_type": "once_around", "artwork_id": 4},
+    {"artist": "Marina Costa", "auction_type": "once_around", "artwork_id": 5},
+    {"artist": "Marina Costa", "auction_type": "once_around", "artwork_id": 6},
+    {"artist": "Marina Costa", "auction_type": "hidden", "artwork_id": 7},
+    {"artist": "Marina Costa", "auction_type": "hidden", "artwork_id": 8},
+    {"artist": "Marina Costa", "auction_type": "fixed_price", "artwork_id": 9},
+    {"artist": "Marina Costa", "auction_type": "fixed_price", "artwork_id": 10},
+    {"artist": "Marina Costa", "auction_type": "double", "artwork_id": 11},
+    {"artist": "Marina Costa", "auction_type": "double", "artwork_id": 12},
+    {"artist": "Marina Costa", "auction_type": "double", "artwork_id": 13},
 
-    # Daniel Melim (14 cards - Red - Urban)
-    {"artist": "Daniel Melim", "auction_type": "open", "artwork_id": 1},
-    {"artist": "Daniel Melim", "auction_type": "open", "artwork_id": 2},
-    {"artist": "Daniel Melim", "auction_type": "open", "artwork_id": 3},
-    {"artist": "Daniel Melim", "auction_type": "once_around", "artwork_id": 4},
-    {"artist": "Daniel Melim", "auction_type": "once_around", "artwork_id": 5},
-    {"artist": "Daniel Melim", "auction_type": "once_around", "artwork_id": 6},
-    {"artist": "Daniel Melim", "auction_type": "hidden", "artwork_id": 7},
-    {"artist": "Daniel Melim", "auction_type": "hidden", "artwork_id": 8},
-    {"artist": "Daniel Melim", "auction_type": "hidden", "artwork_id": 9},
-    {"artist": "Daniel Melim", "auction_type": "fixed_price", "artwork_id": 10},
-    {"artist": "Daniel Melim", "auction_type": "fixed_price", "artwork_id": 11},
-    {"artist": "Daniel Melim", "auction_type": "double", "artwork_id": 12},
-    {"artist": "Daniel Melim", "auction_type": "double", "artwork_id": 13},
-    {"artist": "Daniel Melim", "auction_type": "double", "artwork_id": 14},
+    # Leon Bauer (14 cards - Red - Urban)
+    {"artist": "Leon Bauer", "auction_type": "open", "artwork_id": 1},
+    {"artist": "Leon Bauer", "auction_type": "open", "artwork_id": 2},
+    {"artist": "Leon Bauer", "auction_type": "open", "artwork_id": 3},
+    {"artist": "Leon Bauer", "auction_type": "once_around", "artwork_id": 4},
+    {"artist": "Leon Bauer", "auction_type": "once_around", "artwork_id": 5},
+    {"artist": "Leon Bauer", "auction_type": "once_around", "artwork_id": 6},
+    {"artist": "Leon Bauer", "auction_type": "hidden", "artwork_id": 7},
+    {"artist": "Leon Bauer", "auction_type": "hidden", "artwork_id": 8},
+    {"artist": "Leon Bauer", "auction_type": "hidden", "artwork_id": 9},
+    {"artist": "Leon Bauer", "auction_type": "fixed_price", "artwork_id": 10},
+    {"artist": "Leon Bauer", "auction_type": "fixed_price", "artwork_id": 11},
+    {"artist": "Leon Bauer", "auction_type": "double", "artwork_id": 12},
+    {"artist": "Leon Bauer", "auction_type": "double", "artwork_id": 13},
+    {"artist": "Leon Bauer", "auction_type": "double", "artwork_id": 14},
 
-    # Ramon Martins (15 cards - Green - Botanical)
-    {"artist": "Ramon Martins", "auction_type": "open", "artwork_id": 1},
-    {"artist": "Ramon Martins", "auction_type": "open", "artwork_id": 2},
-    {"artist": "Ramon Martins", "auction_type": "open", "artwork_id": 3},
-    {"artist": "Ramon Martins", "auction_type": "once_around", "artwork_id": 4},
-    {"artist": "Ramon Martins", "auction_type": "once_around", "artwork_id": 5},
-    {"artist": "Ramon Martins", "auction_type": "once_around", "artwork_id": 6},
-    {"artist": "Ramon Martins", "auction_type": "hidden", "artwork_id": 7},
-    {"artist": "Ramon Martins", "auction_type": "hidden", "artwork_id": 8},
-    {"artist": "Ramon Martins", "auction_type": "hidden", "artwork_id": 9},
-    {"artist": "Ramon Martins", "auction_type": "fixed_price", "artwork_id": 10},
-    {"artist": "Ramon Martins", "auction_type": "fixed_price", "artwork_id": 11},
-    {"artist": "Ramon Martins", "auction_type": "fixed_price", "artwork_id": 12},
-    {"artist": "Ramon Martins", "auction_type": "double", "artwork_id": 13},
-    {"artist": "Ramon Martins", "auction_type": "double", "artwork_id": 14},
-    {"artist": "Ramon Martins", "auction_type": "double", "artwork_id": 15},
+    # Flora Vance (15 cards - Green - Botanical)
+    {"artist": "Flora Vance", "auction_type": "open", "artwork_id": 1},
+    {"artist": "Flora Vance", "auction_type": "open", "artwork_id": 2},
+    {"artist": "Flora Vance", "auction_type": "open", "artwork_id": 3},
+    {"artist": "Flora Vance", "auction_type": "once_around", "artwork_id": 4},
+    {"artist": "Flora Vance", "auction_type": "once_around", "artwork_id": 5},
+    {"artist": "Flora Vance", "auction_type": "once_around", "artwork_id": 6},
+    {"artist": "Flora Vance", "auction_type": "hidden", "artwork_id": 7},
+    {"artist": "Flora Vance", "auction_type": "hidden", "artwork_id": 8},
+    {"artist": "Flora Vance", "auction_type": "hidden", "artwork_id": 9},
+    {"artist": "Flora Vance", "auction_type": "fixed_price", "artwork_id": 10},
+    {"artist": "Flora Vance", "auction_type": "fixed_price", "artwork_id": 11},
+    {"artist": "Flora Vance", "auction_type": "fixed_price", "artwork_id": 12},
+    {"artist": "Flora Vance", "auction_type": "double", "artwork_id": 13},
+    {"artist": "Flora Vance", "auction_type": "double", "artwork_id": 14},
+    {"artist": "Flora Vance", "auction_type": "double", "artwork_id": 15},
 
-    # Rafael Silveira (16 cards - Orange - Cosmic)
-    {"artist": "Rafael Silveira", "auction_type": "open", "artwork_id": 1},
-    {"artist": "Rafael Silveira", "auction_type": "open", "artwork_id": 2},
-    {"artist": "Rafael Silveira", "auction_type": "open", "artwork_id": 3},
-    {"artist": "Rafael Silveira", "auction_type": "open", "artwork_id": 4},
-    {"artist": "Rafael Silveira", "auction_type": "once_around", "artwork_id": 5},
-    {"artist": "Rafael Silveira", "auction_type": "once_around", "artwork_id": 6},
-    {"artist": "Rafael Silveira", "auction_type": "once_around", "artwork_id": 7},
-    {"artist": "Rafael Silveira", "auction_type": "hidden", "artwork_id": 8},
-    {"artist": "Rafael Silveira", "auction_type": "hidden", "artwork_id": 9},
-    {"artist": "Rafael Silveira", "auction_type": "hidden", "artwork_id": 10},
-    {"artist": "Rafael Silveira", "auction_type": "fixed_price", "artwork_id": 11},
-    {"artist": "Rafael Silveira", "auction_type": "fixed_price", "artwork_id": 12},
-    {"artist": "Rafael Silveira", "auction_type": "fixed_price", "artwork_id": 13},
-    {"artist": "Rafael Silveira", "auction_type": "double", "artwork_id": 14},
-    {"artist": "Rafael Silveira", "auction_type": "double", "artwork_id": 15},
-    {"artist": "Rafael Silveira", "auction_type": "double", "artwork_id": 16},
+    # Celeste Ruiz (16 cards - Orange - Cosmic)
+    {"artist": "Celeste Ruiz", "auction_type": "open", "artwork_id": 1},
+    {"artist": "Celeste Ruiz", "auction_type": "open", "artwork_id": 2},
+    {"artist": "Celeste Ruiz", "auction_type": "open", "artwork_id": 3},
+    {"artist": "Celeste Ruiz", "auction_type": "open", "artwork_id": 4},
+    {"artist": "Celeste Ruiz", "auction_type": "once_around", "artwork_id": 5},
+    {"artist": "Celeste Ruiz", "auction_type": "once_around", "artwork_id": 6},
+    {"artist": "Celeste Ruiz", "auction_type": "once_around", "artwork_id": 7},
+    {"artist": "Celeste Ruiz", "auction_type": "hidden", "artwork_id": 8},
+    {"artist": "Celeste Ruiz", "auction_type": "hidden", "artwork_id": 9},
+    {"artist": "Celeste Ruiz", "auction_type": "hidden", "artwork_id": 10},
+    {"artist": "Celeste Ruiz", "auction_type": "fixed_price", "artwork_id": 11},
+    {"artist": "Celeste Ruiz", "auction_type": "fixed_price", "artwork_id": 12},
+    {"artist": "Celeste Ruiz", "auction_type": "fixed_price", "artwork_id": 13},
+    {"artist": "Celeste Ruiz", "auction_type": "double", "artwork_id": 14},
+    {"artist": "Celeste Ruiz", "auction_type": "double", "artwork_id": 15},
+    {"artist": "Celeste Ruiz", "auction_type": "double", "artwork_id": 16},
 ]
 
 # Cards to deal per round based on player count

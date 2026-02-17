@@ -1,5 +1,5 @@
 """
-Core game logic for Modern Art.
+Core game logic for Art Auction Game.
 
 Handles:
 - Deck shuffling and dealing

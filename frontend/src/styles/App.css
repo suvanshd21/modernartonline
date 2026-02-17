@@ -1,4 +1,4 @@
-/* Modern Art Online - Styles */
+/* Art Auction Game - Styles */
 
 * {
   box-sizing: border-box;
@@ -21,25 +21,25 @@
   --text-secondary: #aaa;
 
   /* Artist colors - vibrant and thematic */
-  --artist-carvalho: #FFD700;      /* Gold/Yellow - Geometric */
-  --artist-carvalho-dark: #B8860B;
-  --artist-carvalho-bg: rgba(255, 215, 0, 0.15);
+  --artist-novak: #FFD700;      /* Gold/Yellow - Geometric */
+  --artist-novak-dark: #B8860B;
+  --artist-novak-bg: rgba(255, 215, 0, 0.15);
 
-  --artist-thaler: #00A8CC;         /* Cyan/Blue - Ocean */
-  --artist-thaler-dark: #006994;
-  --artist-thaler-bg: rgba(0, 168, 204, 0.15);
+  --artist-costa: #00A8CC;         /* Cyan/Blue - Ocean */
+  --artist-costa-dark: #006994;
+  --artist-costa-bg: rgba(0, 168, 204, 0.15);
 
-  --artist-melim: #DC143C;          /* Crimson/Red - Urban */
-  --artist-melim-dark: #8B0000;
-  --artist-melim-bg: rgba(220, 20, 60, 0.15);
+  --artist-bauer: #DC143C;          /* Crimson/Red - Urban */
+  --artist-bauer-dark: #8B0000;
+  --artist-bauer-bg: rgba(220, 20, 60, 0.15);
 
-  --artist-martins: #228B22;        /* Forest Green - Botanical */
-  --artist-martins-dark: #006400;
-  --artist-martins-bg: rgba(34, 139, 34, 0.15);
+  --artist-vance: #228B22;        /* Forest Green - Botanical */
+  --artist-vance-dark: #006400;
+  --artist-vance-bg: rgba(34, 139, 34, 0.15);
 
-  --artist-silveira: #FF6B00;       /* Vivid Orange - Cosmic */
-  --artist-silveira-dark: #CC5500;
-  --artist-silveira-bg: rgba(255, 107, 0, 0.15);
+  --artist-ruiz: #FF6B00;       /* Vivid Orange - Cosmic */
+  --artist-ruiz-dark: #CC5500;
+  --artist-ruiz-bg: rgba(255, 107, 0, 0.15);
 
   --radius: 8px;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -469,25 +469,25 @@ button:disabled {
   transition: all 0.2s;
 }
 
-.artist-column.artist-carvalho {
-  border-top: 4px solid var(--artist-carvalho);
-  background: linear-gradient(180deg, var(--artist-carvalho-bg) 0%, var(--bg-medium) 30%);
+.artist-column.artist-novak {
+  border-top: 4px solid var(--artist-novak);
+  background: linear-gradient(180deg, var(--artist-novak-bg) 0%, var(--bg-medium) 30%);
 }
-.artist-column.artist-thaler {
-  border-top: 4px solid var(--artist-thaler);
-  background: linear-gradient(180deg, var(--artist-thaler-bg) 0%, var(--bg-medium) 30%);
+.artist-column.artist-costa {
+  border-top: 4px solid var(--artist-costa);
+  background: linear-gradient(180deg, var(--artist-costa-bg) 0%, var(--bg-medium) 30%);
 }
-.artist-column.artist-melim {
-  border-top: 4px solid var(--artist-melim);
-  background: linear-gradient(180deg, var(--artist-melim-bg) 0%, var(--bg-medium) 30%);
+.artist-column.artist-bauer {
+  border-top: 4px solid var(--artist-bauer);
+  background: linear-gradient(180deg, var(--artist-bauer-bg) 0%, var(--bg-medium) 30%);
 }
-.artist-column.artist-martins {
-  border-top: 4px solid var(--artist-martins);
-  background: linear-gradient(180deg, var(--artist-martins-bg) 0%, var(--bg-medium) 30%);
+.artist-column.artist-vance {
+  border-top: 4px solid var(--artist-vance);
+  background: linear-gradient(180deg, var(--artist-vance-bg) 0%, var(--bg-medium) 30%);
 }
-.artist-column.artist-silveira {
-  border-top: 4px solid var(--artist-silveira);
-  background: linear-gradient(180deg, var(--artist-silveira-bg) 0%, var(--bg-medium) 30%);
+.artist-column.artist-ruiz {
+  border-top: 4px solid var(--artist-ruiz);
+  background: linear-gradient(180deg, var(--artist-ruiz-bg) 0%, var(--bg-medium) 30%);
 }
 
 .artist-header {
@@ -500,11 +500,11 @@ button:disabled {
   margin-bottom: 4px;
 }
 
-.artist-column.artist-carvalho .artist-name { color: var(--artist-carvalho); }
-.artist-column.artist-thaler .artist-name { color: var(--artist-thaler); }
-.artist-column.artist-melim .artist-name { color: var(--artist-melim); }
-.artist-column.artist-martins .artist-name { color: var(--artist-martins); }
-.artist-column.artist-silveira .artist-name { color: var(--artist-silveira); }
+.artist-column.artist-novak .artist-name { color: var(--artist-novak); }
+.artist-column.artist-costa .artist-name { color: var(--artist-costa); }
+.artist-column.artist-bauer .artist-name { color: var(--artist-bauer); }
+.artist-column.artist-vance .artist-name { color: var(--artist-vance); }
+.artist-column.artist-ruiz .artist-name { color: var(--artist-ruiz); }
 
 .artist-value {
   display: inline-block;
@@ -630,25 +630,25 @@ button:disabled {
 }
 
 /* Artist-specific card styling with gradients */
-.card.artist-carvalho {
-  border-color: var(--artist-carvalho);
-  background: linear-gradient(135deg, var(--artist-carvalho-bg) 0%, var(--bg-medium) 100%);
+.card.artist-novak {
+  border-color: var(--artist-novak);
+  background: linear-gradient(135deg, var(--artist-novak-bg) 0%, var(--bg-medium) 100%);
 }
-.card.artist-thaler {
-  border-color: var(--artist-thaler);
-  background: linear-gradient(135deg, var(--artist-thaler-bg) 0%, var(--bg-medium) 100%);
+.card.artist-costa {
+  border-color: var(--artist-costa);
+  background: linear-gradient(135deg, var(--artist-costa-bg) 0%, var(--bg-medium) 100%);
 }
-.card.artist-melim {
-  border-color: var(--artist-melim);
-  background: linear-gradient(135deg, var(--artist-melim-bg) 0%, var(--bg-medium) 100%);
+.card.artist-bauer {
+  border-color: var(--artist-bauer);
+  background: linear-gradient(135deg, var(--artist-bauer-bg) 0%, var(--bg-medium) 100%);
 }
-.card.artist-martins {
-  border-color: var(--artist-martins);
-  background: linear-gradient(135deg, var(--artist-martins-bg) 0%, var(--bg-medium) 100%);
+.card.artist-vance {
+  border-color: var(--artist-vance);
+  background: linear-gradient(135deg, var(--artist-vance-bg) 0%, var(--bg-medium) 100%);
 }
-.card.artist-silveira {
-  border-color: var(--artist-silveira);
-  background: linear-gradient(135deg, var(--artist-silveira-bg) 0%, var(--bg-medium) 100%);
+.card.artist-ruiz {
+  border-color: var(--artist-ruiz);
+  background: linear-gradient(135deg, var(--artist-ruiz-bg) 0%, var(--bg-medium) 100%);
 }
 
 /* Card artwork area */
@@ -716,11 +716,11 @@ button:disabled {
   text-overflow: ellipsis;
 }
 
-.card.artist-carvalho .card-artist { color: var(--artist-carvalho); }
-.card.artist-thaler .card-artist { color: var(--artist-thaler); }
-.card.artist-melim .card-artist { color: var(--artist-melim); }
-.card.artist-martins .card-artist { color: var(--artist-martins); }
-.card.artist-silveira .card-artist { color: var(--artist-silveira); }
+.card.artist-novak .card-artist { color: var(--artist-novak); }
+.card.artist-costa .card-artist { color: var(--artist-costa); }
+.card.artist-bauer .card-artist { color: var(--artist-bauer); }
+.card.artist-vance .card-artist { color: var(--artist-vance); }
+.card.artist-ruiz .card-artist { color: var(--artist-ruiz); }
 
 .card-type {
   font-size: 0.65rem;
@@ -1059,7 +1059,7 @@ button:disabled {
 
 .auction-banner.auction-open { border-left-color: var(--success); }
 .auction-banner.auction-once_around { border-left-color: var(--warning); }
-.auction-banner.auction-hidden { border-left-color: var(--artist-thaler); }
+.auction-banner.auction-hidden { border-left-color: var(--artist-costa); }
 .auction-banner.auction-fixed_price { border-left-color: var(--danger); }
 .auction-banner.auction-double { border-left-color: var(--primary); }
 
@@ -1084,7 +1084,7 @@ button:disabled {
 
 .auction-banner.auction-open .auction-type-name { color: var(--success); }
 .auction-banner.auction-once_around .auction-type-name { color: var(--warning); }
-.auction-banner.auction-hidden .auction-type-name { color: var(--artist-thaler); }
+.auction-banner.auction-hidden .auction-type-name { color: var(--artist-costa); }
 .auction-banner.auction-fixed_price .auction-type-name { color: var(--danger); }
 
 .auction-type-desc {

@@ -1,1 +1,1 @@
-# Modern Art Online - Backend Application
+# Art Auction Game - Backend Application

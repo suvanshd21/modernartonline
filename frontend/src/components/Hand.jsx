@@ -11,11 +11,11 @@ function Hand({ cards, onPlayCard, canPlay, disabled }) {
 
   // Artist order for sorting (matches board order)
   const artistOrder = [
-    'Manuel Carvalho',
-    'Sigrid Thaler',
-    'Daniel Melim',
-    'Ramon Martins',
-    'Rafael Silveira',
+    'Viktor Novak',
+    'Marina Costa',
+    'Leon Bauer',
+    'Flora Vance',
+    'Celeste Ruiz',
   ];
 
   // Group cards by artist for better organization
@@ -75,11 +75,11 @@ function Hand({ cards, onPlayCard, canPlay, disabled }) {
 
   // Map artist to color class
   const artistColors = {
-    'Manuel Carvalho': 'artist-carvalho',
-    'Sigrid Thaler': 'artist-thaler',
-    'Daniel Melim': 'artist-melim',
-    'Ramon Martins': 'artist-martins',
-    'Rafael Silveira': 'artist-silveira',
+    'Viktor Novak': 'artist-novak',
+    'Marina Costa': 'artist-costa',
+    'Leon Bauer': 'artist-bauer',
+    'Flora Vance': 'artist-vance',
+    'Celeste Ruiz': 'artist-ruiz',
   };
 
   return (
