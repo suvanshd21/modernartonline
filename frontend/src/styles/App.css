@@ -321,7 +321,8 @@ button:disabled {
 .game-board {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .game-header {
@@ -347,6 +348,7 @@ button:disabled {
   display: flex;
   flex: 1;
   overflow: hidden;
+  min-height: 0;
 }
 
 .sidebar {
@@ -1057,11 +1059,11 @@ button:disabled {
   50% { opacity: 0.8; }
 }
 
-.auction-banner.auction-open { border-left-color: var(--success); }
-.auction-banner.auction-once_around { border-left-color: var(--warning); }
-.auction-banner.auction-hidden { border-left-color: var(--artist-costa); }
-.auction-banner.auction-fixed_price { border-left-color: var(--danger); }
-.auction-banner.auction-double { border-left-color: var(--primary); }
+.auction-banner.auction-open { border-left-color: #9B59B6; }
+.auction-banner.auction-once_around { border-left-color: #1ABC9C; }
+.auction-banner.auction-hidden { border-left-color: #7C3AED; }
+.auction-banner.auction-fixed_price { border-left-color: #EC4899; }
+.auction-banner.auction-double { border-left-color: #4a90d9; }
 
 .auction-banner-content {
   text-align: center;
@@ -1082,10 +1084,10 @@ button:disabled {
   margin-bottom: 4px;
 }
 
-.auction-banner.auction-open .auction-type-name { color: var(--success); }
-.auction-banner.auction-once_around .auction-type-name { color: var(--warning); }
-.auction-banner.auction-hidden .auction-type-name { color: var(--artist-costa); }
-.auction-banner.auction-fixed_price .auction-type-name { color: var(--danger); }
+.auction-banner.auction-open .auction-type-name { color: #9B59B6; }
+.auction-banner.auction-once_around .auction-type-name { color: #1ABC9C; }
+.auction-banner.auction-hidden .auction-type-name { color: #7C3AED; }
+.auction-banner.auction-fixed_price .auction-type-name { color: #EC4899; }
 
 .auction-type-desc {
   display: block;
@@ -1102,6 +1104,70 @@ button:disabled {
   border-radius: 4px;
   font-size: 0.85rem;
   font-weight: bold;
+}
+
+/* Cards In Play (artwork display during auction) */
+.cards-in-play {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.in-play-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.in-play-card {
+  width: 140px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 3px solid var(--bg-light);
+  background: var(--bg-medium);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.in-play-card.artist-novak { border-color: var(--artist-novak); }
+.in-play-card.artist-costa { border-color: var(--artist-costa); }
+.in-play-card.artist-bauer { border-color: var(--artist-bauer); }
+.in-play-card.artist-vance { border-color: var(--artist-vance); }
+.in-play-card.artist-ruiz  { border-color: var(--artist-ruiz); }
+
+.in-play-artwork {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+}
+
+.in-play-artwork .card-artwork-container {
+  height: 100%;
+}
+
+.in-play-info {
+  padding: 8px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.in-play-artist {
+  display: block;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.in-play-card.artist-novak .in-play-artist { color: var(--artist-novak); }
+.in-play-card.artist-costa .in-play-artist { color: var(--artist-costa); }
+.in-play-card.artist-bauer .in-play-artist { color: var(--artist-bauer); }
+.in-play-card.artist-vance .in-play-artist { color: var(--artist-vance); }
+.in-play-card.artist-ruiz  .in-play-artist { color: var(--artist-ruiz); }
+
+.in-play-type {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
 }
 
 /* Money Change Indicator */

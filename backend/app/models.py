@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from uuid import uuid4
 from sqlalchemy import Column, String, Integer, Boolean, DateTime, ForeignKey, Text
 from sqlalchemy.orm import relationship
 
@@ -74,3 +75,22 @@ class ArtistValue(Base):
     value = Column(Integer, nullable=False)
 
     game = relationship("Game", back_populates="artist_values")
+
+
+class Transaction(Base):
+    __tablename__ = "transactions"
+
+    id             = Column(String,  primary_key=True, default=lambda: str(uuid4()))
+    game_id        = Column(String,  ForeignKey("games.id"), nullable=False, index=True)
+    round          = Column(Integer, nullable=False)
+    created_at     = Column(DateTime, default=datetime.utcnow, nullable=False)
+    from_player_id = Column(String,  ForeignKey("players.id"), nullable=True)  # NULL = bank
+    to_player_id   = Column(String,  ForeignKey("players.id"), nullable=True)  # NULL = bank
+    amount         = Column(Integer, nullable=False)  # always >= 0
+    txn_type       = Column(String,  nullable=False)
+    # txn_type values: "auction_sale" | "self_buy" | "fixed_price_no_sale" | "free_card" | "round_payout"
+    description    = Column(String,  nullable=False)
+
+    game        = relationship("Game",   foreign_keys=[game_id], backref="transactions")
+    from_player = relationship("Player", foreign_keys=[from_player_id])
+    to_player   = relationship("Player", foreign_keys=[to_player_id])
