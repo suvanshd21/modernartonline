@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from ..database import get_db
-from ..models import Game, Player
+from ..models import Game, Player, Transaction
 from ..schemas import (
     CreateGameRequest,
     JoinGameRequest,
@@ -256,3 +256,34 @@ async def start_game_route(code: str, player_id: str, db: Session = Depends(get_
     await manager.broadcast_game_state(state, game.code, private)
 
     return {"status": "started"}
+
+
+@router.get("/{code}/transactions")
+async def get_transactions(code: str, db: Session = Depends(get_db)):
+    """Get all transactions for a game (for audit/debugging)."""
+    game = get_game_by_code(db, code)
+    txns = (
+        db.query(Transaction)
+        .filter(Transaction.game_id == game.id)
+        .order_by(Transaction.created_at)
+        .all()
+    )
+    player_names = {p.id: p.name for p in game.players}
+    return {
+        "game_code": game.code,
+        "game_status": game.status,
+        "transaction_count": len(txns),
+        "transactions": [
+            {
+                "id": t.id,
+                "round": t.round,
+                "created_at": t.created_at.isoformat(),
+                "txn_type": t.txn_type,
+                "amount": t.amount,
+                "from": player_names.get(t.from_player_id) if t.from_player_id else "bank",
+                "to": player_names.get(t.to_player_id) if t.to_player_id else "bank",
+                "description": t.description,
+            }
+            for t in txns
+        ],
+    }

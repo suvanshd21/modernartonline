@@ -14,9 +14,23 @@ import random
 from typing import Optional
 from sqlalchemy.orm import Session
 
-from .models import Game, Player, CardInPlay, ArtistValue
+from .models import Game, Player, CardInPlay, ArtistValue, Transaction
 from .cards import DECK, CARDS_PER_ROUND, ARTISTS, get_deck_copy
 from .schemas import Card, DoubleAuctionState
+
+
+def _log_transaction(db, game, txn_type, amount, description,
+                     from_player_id=None, to_player_id=None):
+    """Append a Transaction row. Does NOT commit — piggybacks on caller's commit."""
+    db.add(Transaction(
+        game_id=game.id,
+        round=game.current_round,
+        txn_type=txn_type,
+        amount=amount,
+        description=description,
+        from_player_id=from_player_id,
+        to_player_id=to_player_id,
+    ))
 
 
 def shuffle_deck() -> list[dict]:
@@ -326,6 +340,14 @@ def decline_double(db: Session, game: Game, player: Player, players: list[Player
 
     # All declined or no valid cards - original player gets their card free
     first_card = state["first_card"]
+    original_player_name = next(
+        (p.name for p in players if p.id == state["played_by_id"]),
+        state["played_by_id"]
+    )
+    _log_transaction(db, game, "free_card", 0,
+        f"{original_player_name} received {first_card['artist']} (double) "
+        f"for free — all others declined",
+        from_player_id=None, to_player_id=state["played_by_id"])
     card_in_play = CardInPlay(
         game_id=game.id,
         round=game.current_round,
@@ -393,11 +415,20 @@ def record_auction_result(
         if winner_id == auctioneer_id:
             # Auctioneer bought their own - pay to bank
             winner.money -= price
+            _log_transaction(db, game, "self_buy", price,
+                f"{winner.name} self-bought {cards[0].artist} ({cards[0].auction_type}) "
+                f"for {price}k (paid to bank)",
+                from_player_id=winner_id, to_player_id=None)
         else:
             # Pay to auctioneer
             winner.money -= price
             if auctioneer:
                 auctioneer.money += price
+            _log_transaction(db, game, "auction_sale", price,
+                f"{winner.name} bought {cards[0].artist} "
+                f"({'double ' if len(cards) > 1 else ''}{cards[0].auction_type}) "
+                f"from {auctioneer.name if auctioneer else 'unknown'} for {price}k",
+                from_player_id=winner_id, to_player_id=auctioneer_id)
 
         # Assign cards to winner
         for card in cards:
@@ -411,6 +442,15 @@ def record_auction_result(
                 if price > auctioneer.money:
                     raise ValueError("Auctioneer cannot afford their own price")
                 auctioneer.money -= price
+                _log_transaction(db, game, "fixed_price_no_sale", price,
+                    f"{auctioneer.name if auctioneer else 'unknown'} paid {price}k to bank "
+                    f"(fixed-price unsold: {cards[0].artist})",
+                    from_player_id=auctioneer_id, to_player_id=None)
+        else:
+            _log_transaction(db, game, "free_card", 0,
+                f"{auctioneer.name if auctioneer else 'unknown'} received "
+                f"{cards[0].artist} ({cards[0].auction_type}) for free (no bids)",
+                from_player_id=None, to_player_id=auctioneer_id)
 
         for card in cards:
             card.owner_id = auctioneer_id
@@ -495,9 +535,17 @@ def end_round(db: Session, game: Game, round_ending_player_id: str = None) -> di
 
     for player in players:
         player_cards = [c for c in cards_this_round if c.owner_id == player.id]
-        total_payout = sum(cumulative.get(c.artist, 0) for c in player_cards)
+        total_payout = sum(cumulative.get(c.artist, 0) for c in player_cards if c.artist in new_values)
         player.money += total_payout
         if total_payout > 0:
+            card_summary = ", ".join(
+                f"{c.artist} ({cumulative.get(c.artist, 0)}k)"
+                for c in player_cards if c.artist in new_values
+            )
+            _log_transaction(db, game, "round_payout", total_payout,
+                f"Round {game.current_round} payout to {player.name}: "
+                f"{total_payout}k [{card_summary}]",
+                from_player_id=None, to_player_id=player.id)
             payouts.append({
                 "player_id": player.id,
                 "player_name": player.name,
