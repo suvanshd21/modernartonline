@@ -4,6 +4,7 @@ import ArtistBoard from './ArtistBoard';
 import PlayerList from './PlayerList';
 import AuctionPanel from './AuctionPanel';
 import GameEnd from './GameEnd';
+import CardArtwork from './CardArtwork';
 import { playCard, addDoubleCard, declineDouble } from '../api';
 
 // Auction type display names and descriptions
@@ -29,6 +30,19 @@ const AUCTION_INFO = {
     description: 'Can pair with another card of same artist'
   }
 };
+
+const ARTIST_COLOR_CLASS = {
+  'Viktor Novak': 'artist-novak',
+  'Marina Costa': 'artist-costa',
+  'Leon Bauer':   'artist-bauer',
+  'Flora Vance':  'artist-vance',
+  'Celeste Ruiz': 'artist-ruiz',
+};
+
+// Derive a consistent artwork_id from a card's UUID (CardArtwork wraps with modulo)
+function getArtworkId(cardId) {
+  return (parseInt(cardId.replace(/-/g, '').slice(-4), 16) % 20) + 1;
+}
 
 // Gavel sound as base64
 const GAVEL_SOUND = 'data:audio/wav;base64,UklGRpQFAABXQVZFZm10IBAAAAABAAEAESsAABErAAABAAgAZGF0YXAFAACAgICAgICAgICAgICAgICAgICAgHx4eHyAgICAgICEjJCMhHx0dHR4gISMkJCMhHhwbGxweISQmJiUjIR8dHR0eICEjJCUlJSQjIiEgICAgoSIjJCUlJSUkIyIhHx4eHyAhIiMkJSYmJiUkIyIgHx4dHR4fICEjJSYmJmYlJCMiIB8fHx8gIiMlJiYmJiYlJCMiIB8eHh4fICEjJSYmJiYmJSQjIiAfHh4eHx8gIiQlJiYmJiYlJCMiIB8eHh4fHyAiJCUmJiYmJiYlJCMhIB8eHh8fICAiJCUmJiYmJiYlJCMhIB8eHx8fICAiJCUmJiYmJiYlJCMhIB8fHx8gICAiJCUlJiYmJiYlJCMhIB8fHx8gICAiJCUlJiYmJiUlJCMhIB8fHyAgICAiJCUlJiYmJiUlJCMhIB8gICAgICAiJCUlJSYmJiUlJCMhIB8gICAgICAiJCUlJSYmJSUlJCMhICAgICAgICAiJCQlJSUlJSUkJCMhICAgICAgICAhIyQkJCQkJCQkIyIhICAgICAgICAhIyMjIyMjIyMjIiIhICAgICAgICAhIiIiIiIiIiIiIiEgICAgICAgICAhISEhISEhISEhISAgICAgICAgICAhISEgICAhISAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAfX19fX+AgYKDg4OCgYCAfn19fX1/gIKEhoiIiIeFgoB+fHt7fH6BhIiLjo6OjYuHhIB9e3p6fH+DiI2RlJSUko+LhoJ+e3p7foKHjZKXmpqZl5OOiYR/fHt8f4OJkJabnp6dnJiTjoiDf3x7fYGGjZSan6GhoJ2ZlI6Jg398fH6CiI+Wm6CjpKOhnpmUjoiDf3x9f4OJkJedoqWlpKKfm5aNiYN/fH1/g4qRmJ6jpqampaKem5WPioR/fX6Ag4qSmZ+kp6inpqShnpqUjoqEf31+gISLkpqfpKeoqKempKGem5WPioWAf3+AhYuTmp+kp6ioqKelloGdmZSPi4aBgICBhYyTmqCkp6ioqKelloGdmZWSjoqGgoGBhIiOlZugo6anp6empaOgnpuXk4+LiIWDgoSHi5CWm5+ipKWmpqaloqCenJmWko+MiYaEhIaJjZKXm5+ipKWlpaWkoqCenJqXlJGOi4mHhoaIi4+TmJyfoaOkpKSkpKOioJ6cmpiVko+NioiHh4iLjpKWmp6goqOjo6OjoqKgnp2bmJaSj42LiYiIiYuOkZWYnJ+hoqKioqKioaCfnpyamJWTkI6MioiIiYqNkJOXmp2foKGhoaGhoaCfnp2cmpmXlZKQjoyKiYmKi42QkpWYmp2en5+fnp6dnJuamZiXlZSTkY+OjYuKioqLjI6QkpSWmJmanJycnJuamZiXlpWUk5KQj46NjIuKioqLjI2PkZOVl5mam5ubmpqZmJeWlZSSkZCPjo2Mi4uKioqLjI2Oj5CRkpOUlZaWlpaVlZSUk5KRkJCPjo6NjIyLi4uLi4yMjY6PkJCRkpOTlJSUlJOTk5KSkZGQj4+OjY2MjIuLi4uLjIyNjY6Pj5CRkZKSkpKSkpKRkZCQj4+Ojo2NjIyMi4uLi4yMjI2Njo6Pj5CQkZGRkZGRkJCQj4+Ojo6NjY2MjIyLi4uMjIyMjY2Ojo6Pj4+Qj4+Qj4+Pj46Ojo6NjY2NjIyMjIyMi4yMjI2Njo6Ojo6Ojo6Ojo6Ojo6NjY2NjY2MjIyMjIyMjIyMjY2NjY6Ojo6Ojo6Ojo6Ojo2NjY2NjY2NjIyMjIyMjIyMjI2NjY2Njo6Ojo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Ojo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Njo6Ojo6OjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2Njo6Ojo6NjY2NjY2NjY2MjIyMjIyMjIyMjY2NjY2NjY2Ojo6Ojo6NjY2NjY2NjYyMjIyMjIyMjIyNjY2NjY2NjY2Ojo6Ojo2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY6Ojo6NjY2NjY2NjY2MjIyMjIyMjIyNjY2NjY2NjY2Njo6Ojo2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY6Ojo2NjY2NjY2NjYyMjIyMjIyMjI2NjY2NjY2NjY2Ojo6OjY2NjY2NjY2MjIyMjIyMjIyNjY2NjY2NjY2NjY2OjY2NjY2NjY2NjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjI2NjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2NjIyMjIyMjIyNjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyMjY2NjY2NjY2NjY2NjY2NjY2MjIyMjIyMjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyNjY2NjY2NjY2NjY2NjY2NjIyMjIyMjY2NjY2NjY2NjY2NjY2NjYyMjIyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjIyNjY2NjY2NjY2NjY2NjYyMjIyMjY2NjY2NjY2NjY2NjY2NjIyMjIyNjY2NjY2NjY2NjY2NjYyMjIyNjY2NjY2NjY2NjY2NjY2MjIyMjY2NjY2NjY2NjY2NjYyMjIyNjY2NjY2NjY2NjY2NjYyMjI2NjY2NjY2NjY2NjY2MjIyNjY2NjY2NjY2NjY2NjIyMjY2NjY2NjY2NjY2NjIyNjY2NjY2NjY2NjY2MjI2NjY2NjY2NjY2NjYyMjY2NjY2NjY2NjY2MjY2NjY2NjY2NjY2MjY2NjY2NjY2NjYyNjY2NjY2NjY2NjY2NjY2NjY2NjYyNjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2Ng==';
@@ -246,6 +260,25 @@ function GameBoard({ gameState, playerId, isConnected }) {
                 {pendingCards.length > 1 && (
                   <span className="auction-double-note">Double auction - 2 cards!</span>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Artwork for cards currently up for auction */}
+          {pendingCards.length > 0 && (
+            <div className="cards-in-play">
+              <div className="in-play-cards">
+                {pendingCards.map((card) => (
+                  <div key={card.id} className={`in-play-card ${ARTIST_COLOR_CLASS[card.artist] || ''}`}>
+                    <div className="in-play-artwork">
+                      <CardArtwork artist={card.artist} artworkId={getArtworkId(card.id)} />
+                    </div>
+                    <div className="in-play-info">
+                      <span className="in-play-artist">{card.artist}</span>
+                      <span className="in-play-type">{AUCTION_INFO[card.auction_type]?.name}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
